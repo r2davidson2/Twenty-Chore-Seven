@@ -38,7 +38,7 @@ router.post('/child', (req, res)=>{
 
 router.get('/child', (req, res) => {
    // console.log(req.session.currentUser);
-   Child.findOne({parent: req.session.currentUser._id}, (err, foundChildren) => {
+   Child.find({parent: req.session.currentUser._id}, (err, foundChildren) => {
       // console.log(foundChildren);
       req.session.foundChildren = foundChildren
       res.json(foundChildren)

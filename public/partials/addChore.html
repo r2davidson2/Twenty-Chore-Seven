@@ -1,0 +1,57 @@
+<div class="add-chore" ng-if="ctrl.loggedInUserId">
+   <form ng-submit="ctrl.addChore()">
+      <input
+         type="text"
+         ng-model="ctrl.task"
+         placeholder="Chore"
+         required><br>
+      <input
+         type="number"
+         ng-model="ctrl.points"
+         placeholder="Points"
+         required/><br>
+      <label> Monday
+         <input
+            type="checkbox"
+            ng-model="ctrl.monday"
+            placeholder="Monday">
+      </label><br>
+      <label> Tuesday
+         <input
+            type="checkbox"
+            ng-model="ctrl.tuesday"
+            placeholder="">
+      </label><br>
+      <label> Wednesday
+         <input
+            type="checkbox"
+            ng-model="ctrl.wednesday"
+            placeholder="">
+      </label><br>
+      <label> Thursday
+         <input
+            type="checkbox"
+            ng-model="ctrl.thursday"
+            placeholder="">
+      </label><br>
+      <label> Friday
+         <input
+            type="checkbox"
+            ng-model="ctrl.friday"
+            placeholder="">
+      </label><br>
+      <label> Saturday
+         <input
+            type="checkbox"
+            ng-model="ctrl.saturday"
+            placeholder="">
+      </label><br>
+      <label> Sunday
+         <input
+            type="checkbox"
+            ng-model="ctrl.sunday"
+            placeholder="">
+      </label><br>
+      <input type="submit" value="Add Chore">
+   </form>
+</div>

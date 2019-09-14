@@ -1,0 +1,27 @@
+{
+  "name": "twenty-chore-seven",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/r2davidson2/Twenty-Chore-Seven.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/r2davidson2/Twenty-Chore-Seven/issues"
+  },
+  "homepage": "https://github.com/r2davidson2/Twenty-Chore-Seven#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "express-session": "^1.16.2",
+    "mongoose": "^5.7.1"
+  }
+}

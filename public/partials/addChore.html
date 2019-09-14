@@ -1,5 +1,5 @@
-<div class="add-chore" ng-if="ctrl.loggedInUserId">
-   <form ng-submit="ctrl.addChore()">
+<div class="add-chore" ng-if="ctrl.loggedInUser.admin">
+   <form ng-submit="ctrl.addChore(child)">
       <input
          type="text"
          ng-model="ctrl.task"

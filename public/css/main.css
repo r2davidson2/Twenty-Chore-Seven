@@ -1,0 +1,17 @@
+main {
+   margin: 10px;
+}
+.chore {
+   display: flex;
+   justify-content: space-between;
+   margin: 5px 0;
+   padding: 10px;
+   background: blue;
+   color: ghostwhite;
+   border: 1px solid blue;
+   border-radius: 5px;
+   text-transform: capitalize;
+}
+h4, h5 {
+   margin: 0;
+}

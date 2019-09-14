@@ -30,9 +30,6 @@ app.use(session({
    saveUninitialized: false
 }));
 
-app.get("/config", (req, res) => {
-  res.json(key);
-})
 //___________________
 // AUTH ROUTE
 //___________________

@@ -12,6 +12,8 @@ app.controller('ChoresController', ['$http', function($http) {
    // --------------
    //  AUTH ROUTES
    // --------------
+   this.loggedInUser = null;
+
    this.createParent = function(){
       $http({
          method: 'POST',
@@ -88,7 +90,7 @@ app.controller('ChoresController', ['$http', function($http) {
             // console.log(response.data._id);
             controller.getChildren();
             controller.includeRoute = 'partials/welcome.html'
-            controller.loggedInUserId = response.data._id;
+            controller.loggedInUser = response.data;
          }, function(error) {
             console.log(error);
          }
@@ -102,7 +104,9 @@ app.controller('ChoresController', ['$http', function($http) {
       }).then(
          function(response) {
             console.log(response);
-            controller.loggedInUserId = null;
+            controller.loggedInUser = null;
+            controller.child = null;
+            controller.changeRoute('')
          }, function(error) {
             console.log(error);
          }
@@ -112,40 +116,40 @@ app.controller('ChoresController', ['$http', function($http) {
    // --------------
    // CHORES ROUTES
    // --------------
+   this.chore;
    this.chores = [];
    this.children = [];
+   this.child = null;
 
-   this.showChores = function() {
+   this.deleteChore = function() {
       $http({
          method: 'GET',
          url: '/chores'
       }).then(
          (response) => {
-            this.chores = response.data;
             console.log(this.chores);
          }
       )
    };
 
-   this.addChore = function(child) {
+   this.addChore = function() {
       $http({
-         method: 'POST',
-         url: '/chores',
+         method: 'PUT',
+         url: '/users/child/' + controller.child._id,
          data: {
-            task: this.task,
-            points: this.points,
-            monday: this.monday,
-            tuesday: this.tuesday,
-            wednesday: this.wednesday,
-            thursday: this.thursday,
-            friday: this.friday,
-            satday: this.saturday,
-            sunday: this.sunday,
-            createdBy: this.loggedInUserId
-         }
+                  task: this.task,
+                  points: this.points,
+                  monday: this.monday,
+                  tuesday: this.tuesday,
+                  wednesday: this.wednesday,
+                  thursday: this.thursday,
+                  friday: this.friday,
+                  saturday: this.saturday,
+                  sunday: this.sunday,
+                  createdBy: this.loggedInUserId
+               }
       }).then((response) => {
-         child.data.chores.unshift(response.data);
-         this.resetForm();
+         controller.showChild(this.child);
       })
    }
 
@@ -159,6 +163,20 @@ app.controller('ChoresController', ['$http', function($http) {
             console.log(this.children);
          })
    };
+
+   this.showChild = function(child) {
+      $http({
+         method: 'GET',
+         url: '/users/child/' + child._id
+      }).then((response) => {
+         console.log('clicked');
+         // console.log(response.data);
+         this.child = response.data;
+         this.chores = response.data.chores
+         controller.includeRoute = 'partials/showChild.html'
+         // console.log(this.child);
+      })
+   }
 
    this.resetForm = function() {
       this.task = null;

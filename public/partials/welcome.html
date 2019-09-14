@@ -1,4 +1,4 @@
 <div class="welcome"
    ng-repeat="child in ctrl.children">
-   <h1>{{ child.username }}</h1>
+   <h1 ng-click="ctrl.showChild(child)">{{ child.username }}</h1>
 </div>

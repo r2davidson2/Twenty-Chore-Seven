@@ -45,5 +45,16 @@ router.get('/child', (req, res) => {
    })
 })
 
+router.get('/child/:id', (req, res) => {
+   Child.findById(req.params.id, (err, foundChild) => {
+      res.json(foundChild)
+   })
+});
+
+router.put('/child/:id', (req, res) => {
+   Child.findByIdAndUpdate(req.params.id, {$push: {chores: req.body}}, {new:true}, (error, updatedChore) => {
+      res.json(updatedChore);
+   });
+});
 
 module.exports = router;

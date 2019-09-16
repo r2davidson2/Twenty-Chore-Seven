@@ -116,18 +116,65 @@ app.controller('ChoresController', ['$http', function($http) {
    // --------------
    // CHORES ROUTES
    // --------------
-   this.chore;
+   this.chore = null;
    this.chores = [];
    this.children = [];
    this.child = null;
 
-   this.deleteChore = function() {
+   this.showChore = (chore) => {
+      controller.changeRoute('showChore');
+      this.chore = chore;
+      // console.log(chore);
+   }
+
+   this.editChore = function(chore) {
+      this.includeRoute = `partials/editChore.html`
+      this.updatedTask = this.chore.task;
+      this.updatedPoints = this.chore.points
+   }
+
+   this.postEditedChore = function(task) {
+      this.updatedChore = {
+         task: this.updatedTask,
+         points: this.updatedPoints,
+         monday: this.updatedMonday,
+         tuesday: this.updatedTuesday,
+         wednesday: this.updatedWednesday,
+         thursday: this.updatedThursday,
+         friday: this.updatedFriday,
+         saturday: this.updatedSaturday,
+         sunday: this.updatedSunday
+      }
+      this.chores = this.chores.filter(chore => chore.task !== task);
+      this.chores.push(this.updatedChore);
       $http({
-         method: 'GET',
-         url: '/chores'
+         method: 'PUT',
+         url: '/chores/' + this.child._id,
+         data: {
+            chores: controller.chores
+         }
       }).then(
          (response) => {
-            console.log(this.chores);
+            console.log(response);
+            this.updatedChore = null;
+            controller.showChild(this.child);
+         }
+      )
+   }
+
+   this.deleteChore = function(task) {
+      this.chores = this.chores.filter(chore => chore.task !== task)
+      console.log(this.chores);
+      $http({
+         method: 'PUT',
+         url: '/chores/' + this.child._id,
+         data: {
+            chores: controller.chores
+         }
+      }).then(
+         (response) => {
+            console.log(response);
+            controller.showChild(this.child);
          }
       )
    };
@@ -158,9 +205,9 @@ app.controller('ChoresController', ['$http', function($http) {
             method: 'GET',
             url: '/users/child'
          }).then((response) => {
-            console.log(response.data);
+            // console.log(response.data);
             this.children = response.data
-            console.log(this.children);
+            // console.log(this.children);
          })
    };
 
@@ -169,8 +216,9 @@ app.controller('ChoresController', ['$http', function($http) {
          method: 'GET',
          url: '/users/child/' + child._id
       }).then((response) => {
-         console.log('clicked');
+         // console.log('clicked');
          // console.log(response.data);
+         this.chore = null;
          this.child = response.data;
          this.chores = response.data.chores
          controller.includeRoute = 'partials/showChild.html'

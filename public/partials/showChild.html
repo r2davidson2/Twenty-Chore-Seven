@@ -2,7 +2,7 @@
    <h1>{{ ctrl.child.username}}</h1>
    <h3>Points: {{ ctrl.child.points}}</h3>
    <div ng-repeat="chore in ctrl.child.chores" class="chore"
-      ng-click="ctrl.changeRoute('showChore')">
+      ng-click="ctrl.showChore(chore)">
       <h4>{{chore.task}}</h4>
       <h5>Earn {{chore.points}} Points</h5>
    </div>

@@ -19,7 +19,7 @@ app.controller('ChoresController', ['$http', function($http) {
          method: 'POST',
          url: '/users/parent',
          data: {
-            username: this.createUsername,
+            username: this.createUsername.toLowerCase(),
             password: this.createPassword,
             admin: true
          }
@@ -40,9 +40,9 @@ app.controller('ChoresController', ['$http', function($http) {
          method: 'POST',
          url: '/users/child',
          data: {
-            username: this.createUsername,
+            username: this.createUsername.toLowerCase(),
             password: this.createPassword,
-            parent: controller.loggedInUserId,
+            parent: controller.loggedInUser._id,
             chores: [],
             points: 0,
             admin: false
@@ -54,6 +54,7 @@ app.controller('ChoresController', ['$http', function($http) {
          }
          controller.createUsername = null;
          controller.createPassword = null;
+         controller.loadPage();
       }, function(error) {
          console.log(error);
       })
@@ -64,16 +65,18 @@ app.controller('ChoresController', ['$http', function($http) {
          method: 'POST',
          url: '/sessions',
          data: {
-            username: this.username,
+            username: this.username.toLowerCase(),
             password: this.password
          }
       }).then(
          function(response) {
-            // console.log(response);
+            controller.loggedInUser = response.data.user;
+            console.log(controller.loggedInUser);
             controller.username = null;
             controller.password = null;
             controller.loadPage();
          }, function(error) {
+            console.log(error);
             if (error.status === 401) {
                alert('Username or password is incorrect.')
             }
@@ -87,10 +90,8 @@ app.controller('ChoresController', ['$http', function($http) {
          url: '/app'
       }).then(
          function(response) {
-            // console.log(response.data._id);
             controller.getChildren();
             controller.includeRoute = 'partials/welcome.html'
-            controller.loggedInUser = response.data;
          }, function(error) {
             console.log(error);
          }
@@ -103,10 +104,10 @@ app.controller('ChoresController', ['$http', function($http) {
          url: '/sessions'
       }).then(
          function(response) {
-            console.log(response);
+            // console.log(response);
             controller.loggedInUser = null;
             controller.child = null;
-            controller.changeRoute('')
+            controller.includeRoute = ''
          }, function(error) {
             console.log(error);
          }
@@ -130,20 +131,48 @@ app.controller('ChoresController', ['$http', function($http) {
    this.editChore = function(chore) {
       this.includeRoute = `partials/editChore.html`
       this.updatedTask = this.chore.task;
-      this.updatedPoints = this.chore.points
+      this.updatedPoints = this.chore.points;
+      this.updatedMonday = this.chore.monday.toDo;
+      this.updatedTuesday = this.chore.tuesday.toDo;
+      this.updatedWednesday = this.chore.wednesday.toDo;
+      this.updatedThursday = this.chore.thursday.toDo;
+      this.updatedFriday = this.chore.friday.toDo;
+      this.updatedSaturday = this.chore.saturday.toDo;
+      this.updatedSunday = this.chore.sunday.toDo;
    }
 
    this.postEditedChore = function(task) {
       this.updatedChore = {
          task: this.updatedTask,
          points: this.updatedPoints,
-         monday: this.updatedMonday,
-         tuesday: this.updatedTuesday,
-         wednesday: this.updatedWednesday,
-         thursday: this.updatedThursday,
-         friday: this.updatedFriday,
-         saturday: this.updatedSaturday,
-         sunday: this.updatedSunday
+         monday: {
+               toDo: this.updatedMonday || false,
+               completed: false
+            },
+         tuesday: {
+               toDo: this.updatedTuesday || false,
+               completed: false
+            },
+         wednesday: {
+               toDo: this.updatedWednesday || false,
+               completed: false
+            },
+         thursday: {
+               toDo: this.updatedThursday || false,
+               completed: false
+            },
+         friday: {
+               toDo: this.updatedFriday || false,
+               completed: false
+            },
+         saturday: {
+               toDo: this.updatedSaturday || false,
+               completed: false
+            },
+         sunday: {
+               toDo: this.updatedSunday || false,
+               completed: false
+            },
       }
       this.chores = this.chores.filter(chore => chore.task !== task);
       this.chores.push(this.updatedChore);
@@ -155,7 +184,7 @@ app.controller('ChoresController', ['$http', function($http) {
          }
       }).then(
          (response) => {
-            console.log(response);
+            // console.log(response);
             this.updatedChore = null;
             controller.showChild(this.child);
          }
@@ -186,13 +215,34 @@ app.controller('ChoresController', ['$http', function($http) {
          data: {
                   task: this.task,
                   points: this.points,
-                  monday: this.monday,
-                  tuesday: this.tuesday,
-                  wednesday: this.wednesday,
-                  thursday: this.thursday,
-                  friday: this.friday,
-                  saturday: this.saturday,
-                  sunday: this.sunday,
+                  monday: {
+                        toDo: this.monday || false,
+                        completed: false
+                     },
+                  tuesday: {
+                        toDo: this.tuesday || false,
+                        completed: false
+                     },
+                  wednesday: {
+                        toDo: this.wednesday || false,
+                        completed: false
+                     },
+                  thursday: {
+                        toDo: this.thursday || false,
+                        completed: false
+                     },
+                  friday: {
+                        toDo: this.friday || false,
+                        completed: false
+                     },
+                  saturday: {
+                        toDo: this.saturday || false,
+                        completed: false
+                     },
+                  sunday: {
+                        toDo: this.sunday || false,
+                        completed: false
+                     },
                   createdBy: this.loggedInUserId
                }
       }).then((response) => {

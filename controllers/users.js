@@ -7,13 +7,19 @@ const Child = require('../models/child.js');
 router.post('/parent', (req, res)=>{
    Parent.findOne({ username: req.body.username }, (err, foundUser)=>{
       if(foundUser === null){
-         req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
-         Parent.create(req.body, (err, createdUser)=>{
-            res.status(201).json({
-               status: 201,
-               message: 'user created'
-            })
-         });
+         Child.findOne({ username: req.body.username }, (err, foundUser)=>{
+            if(foundUser === null){
+               req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
+               Parent.create(req.body, (err, createdUser)=>{
+                  res.status(201).json({
+                     status: 201,
+                     message: 'user created'
+                  })
+               });
+            } else {
+               res.json("Username already exists!");
+            }
+         })
       } else {
          res.json("Username already exists!");
       }
@@ -23,13 +29,19 @@ router.post('/parent', (req, res)=>{
 router.post('/child', (req, res)=>{
    Child.findOne({ username: req.body.username }, (err, foundUser)=>{
       if(foundUser === null){
-         req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
-         Child.create(req.body, (err, createdUser)=>{
-            res.status(201).json({
-               status: 201,
-               message: 'user created'
-            })
-         });
+         Parent.findOne({ username: req.body.username }, (err, foundUser)=>{
+            if(foundUser === null){
+               req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
+               Child.create(req.body, (err, createdUser)=>{
+                  res.status(201).json({
+                     status: 201,
+                     message: 'user created'
+                  })
+               });
+            } else {
+               res.json("Username already exists!");
+            }
+         })
       } else {
          res.json("Username already exists!");
       }

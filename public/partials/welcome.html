@@ -1,4 +1,20 @@
-<div class="welcome"
+<div class="welcome" ng-if="ctrl.loggedInUser.admin"
    ng-repeat="child in ctrl.children">
-   <h1 ng-click="ctrl.showChild(child)">{{ child.username }}</h1>
+   <div class="child-card" ng-click="ctrl.showChild(child)">
+      <h1 >{{ child.username }}</h1>
+      <h3>{{ child.points }} Points</h3>
+   </div>
+</div>
+
+<div class="" ng-if="!ctrl.loggedInUser.admin"
+   ng-repeat="chore in ctrl.loggedInUser.chores">
+   <h1>{{ chore.task }}</h1>
+   <h4>Point: {{ chore.points }}</h4>
+   <h4 ng-if="chore.monday.toDo">Monday</h4>
+   <h4 ng-if="chore.tuesday.toDo">Tuesday</h4>
+   <h4 ng-if="chore.wednesday.toDo">Wednesday</h4>
+   <h4 ng-if="chore.thursday.toDo">Thursday</h4>
+   <h4 ng-if="chore.friday.toDo">Friday</h4>
+   <h4 ng-if="chore.saturday.toDo">Saturday</h4>
+   <h4 ng-if="chore.sunday.toDo">Sunday</h4>
 </div>

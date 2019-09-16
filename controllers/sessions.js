@@ -15,20 +15,39 @@ router.delete('/', (req, res) => {
 
 router.post('/', (req, res)=>{
     Parent.findOne({username:req.body.username}, (err, foundUser)=>{
-        if(bcrypt.compareSync(req.body.password, foundUser.password)){
+      if (foundUser === null) {
+         Child.findOne({username:req.body.username}, (err, foundUser)=>{
+            if(bcrypt.compareSync(req.body.password, foundUser.password)){
+               req.session.currentUser = foundUser;
+               res.status(201).json({
+                     status: 201,
+                     message: 'session created',
+                     user: req.session.currentUser
+               })
+            } else {
+                  res.status(401).json({
+                     status: 401,
+                     message: 'login failed'
+                  })
+            }
+         })
+      } else {
+         if(bcrypt.compareSync(req.body.password, foundUser.password)){
             // console.log(foundUser);
             req.session.currentUser = foundUser;
             res.status(201).json({
                status: 201,
-               message: 'session created'
+               message: 'session created',
+               user: req.session.currentUser
             })
-        } else {
+         } else {
             res.status(401).json({
                status: 401,
                message: 'login failed'
             })
-        }
-    })
+         }
+      }
+   })
 })
 
 module.exports = router;

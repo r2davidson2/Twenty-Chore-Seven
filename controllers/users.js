@@ -69,6 +69,10 @@ router.put('/child/:id', (req, res) => {
    });
 });
 
-
+router.delete('/child/:id', (req, res) => {
+   Child.findByIdAndRemove(req.params.id, (error, deletedChild) => {
+      res.json(deletedChild);
+   });
+});
 
 module.exports = router;

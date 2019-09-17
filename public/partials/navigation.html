@@ -1,18 +1,19 @@
-<!-- <h5
+<h5
    ng-if="!ctrl.loggedInUser"
    ng-click="ctrl.changeRoute('login')">
    Login
-</h5> -->
-<a
+</h5>
+<!-- <a
    ng-if="!ctrl.loggedInUser"
    ng-click="ctrl.changeRoute('login')">
    Login
-</a>
+</a> -->
 <h5
    ng-if="!ctrl.loggedInUser"
    ng-click="ctrl.changeRoute('createParentAccount')">
    Create Account
 </h5>
+
 <h5
    ng-if="ctrl.loggedInUser.admin"
    ng-click="ctrl.changeRoute('createChildAccount')">
@@ -20,7 +21,7 @@
 </h5>
 <h5
    ng-if="ctrl.loggedInUser && !ctrl.loggedInUser.admin">
-   Points: {{ctrl.loggedInUser.points}}
+   Total Points: {{ctrl.loggedInUser.points}}
 </h5>
 <h5
    ng-if="ctrl.loggedInUser"

@@ -1,7 +1,44 @@
-<div class="">
-   <h4>{{ctrl.chore.task}}</h4>
+<div class="show-chore">
+   <!-- <h4>{{ctrl.chore.task}}</h4> -->
+
+   <h5>Days to {{ctrl.chore.task}}</h5>
+   <h5 ng-if="ctrl.chore.monday.toDo">Monday</h5>
+   <button type="button"
+      ng-if="ctrl.chore.monday.toDo && ctrl.chore.monday.completed">
+      Sign Off
+   </button>
+   <h5 ng-if="ctrl.chore.tuesday.toDo">Tuesday</h5>
+   <button type="button"
+      ng-if="ctrl.chore.tuesday.toDo && ctrl.chore.tuesday.completed">
+      Sign Off
+   </button>
+   <h5 ng-if="ctrl.chore.wednesday.toDo">Wednesday</h5>
+   <button type="button"
+      ng-if="ctrl.chore.wednesday.toDo && ctrl.chore.wednesday.completed">
+      Sign Off
+   </button>
+   <h5 ng-if="ctrl.chore.thursday.toDo">Thursday</h5>
+   <button type="button"
+      ng-if="ctrl.chore.thursday.toDo && ctrl.chore.thursday.completed">
+      Sign Off
+   </button>
+   <h5 ng-if="ctrl.chore.friday.toDo">Friday</h5>
+   <button type="button"
+      ng-if="ctrl.chore.friday.toDo && ctrl.chore.friday.completed">
+      Sign Off
+   </button>
+   <h5 ng-if="ctrl.chore.saturday.toDo">Saturday</h5>
+   <button type="button"
+      ng-if="ctrl.chore.saturday.toDo && ctrl.chore.saturday.completed">
+      Sign Off
+   </button>
+   <h5 ng-if="ctrl.chore.sunday.toDo">Sunday</h5>
+   <button type="button"
+      ng-if="ctrl.chore.sunday.toDo && ctrl.chore.sunday.completed">
+      Sign Off
+   </button>
    <h5>Earn {{ctrl.chore.points}} Points</h5>
    <button type="button" ng-click="ctrl.editChore()">Edit Chore</button>
-   <button type="button" ng-click="ctrl.deleteChore(ctrl.chore.task)">Delete Chore</button>
+   <button type="button" ng-click="ctrl.deleteChore(ctrl.chore.task)">Delete Chore</button><br>
    <button type="button" ng-click="ctrl.showChild(ctrl.child)">Back</button>
 </div>

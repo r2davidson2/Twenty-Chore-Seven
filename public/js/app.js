@@ -42,6 +42,7 @@ app.controller('ChoresController', ['$http', function($http) {
          data: {
             username: this.createUsername.toLowerCase(),
             password: this.createPassword,
+            name: this.createName,
             parent: controller.loggedInUser._id,
             chores: [],
             points: 0,
@@ -60,6 +61,17 @@ app.controller('ChoresController', ['$http', function($http) {
       })
    };
 
+   this.deleteChild = function(child) {
+      $http({
+         method: 'DELETE',
+         url: '/users/child/' + child._id
+      }).then(
+         (response) => {
+            controller.loadPage();
+         }
+      )
+   }
+
    this.logIn = function() {
       $http({
          method: 'POST',
@@ -74,6 +86,8 @@ app.controller('ChoresController', ['$http', function($http) {
             console.log(controller.loggedInUser);
             controller.username = null;
             controller.password = null;
+            this.chores = controller.loggedInUser.chores || null;
+            console.log(this.chores);
             controller.loadPage();
          }, function(error) {
             console.log(error);
@@ -246,6 +260,7 @@ app.controller('ChoresController', ['$http', function($http) {
                   createdBy: this.loggedInUserId
                }
       }).then((response) => {
+         controller.resetForm();
          controller.showChild(this.child);
       })
    }
@@ -274,6 +289,327 @@ app.controller('ChoresController', ['$http', function($http) {
          controller.includeRoute = 'partials/showChild.html'
          // console.log(this.child);
       })
+   }
+
+   this.childShowChore = (chore) => {
+      controller.changeRoute('childShowChore');
+      this.chore = chore;
+   };
+
+   this.markCompleted = function(day) {
+      this.updatedChore = {
+         task: this.chore.task,
+         points: this.chore.points,
+         // monday: {
+         //       toDo: this.chore.monday.toDo,
+         //       if (day === 'monday') {
+         //          completed: true
+         //       } else {
+         //          completed: false
+         //       }
+         //    },
+         tuesday: {
+               toDo: this.chore.tuesday.toDo,
+               completed: false
+            },
+         wednesday: {
+               toDo: this.chore.wednesday.toDo,
+               completed: false
+            },
+         thursday: {
+               toDo: this.chore.thursday.toDo,
+               completed: false
+            },
+         friday: {
+               toDo: this.chore.friday.toDo,
+               completed: false
+            },
+         saturday: {
+               toDo: this.chore.saturday.toDo,
+               completed: false
+            },
+         sunday: {
+               toDo: this.chore.sunday.toDo,
+               completed: false
+            },
+      }
+      this.chores = this.chores.filter(chore => chore.task !== task);
+      this.chores.push(this.updatedChore);
+      $http({
+         method: 'PUT',
+         url: '/chores/update/' + this.loggedInUser._id,
+         data: {
+            task: this.chore.task,
+            day: day
+         }
+      }).then(
+         (response) => {
+            // console.log(response);
+            this.updatedChore = null;
+            // controller.showChild(this.child);
+         }
+      )
+   }
+
+   this.temporaryMarkCompleted = function(day) {
+      switch(day) {
+         case 'monday':
+            this.updatedChore = {
+               task: this.chore.task,
+               points: this.chore.points,
+               monday: {
+                     toDo: this.chore.monday.toDo,
+                     completed: true
+                  },
+               tuesday: {
+                     toDo: this.chore.tuesday.toDo,
+                     completed: this.chore.tuesday.completed
+                  },
+               wednesday: {
+                     toDo: this.chore.wednesday.toDo,
+                     completed: this.chore.wednesday.completed
+                  },
+               thursday: {
+                     toDo: this.chore.thursday.toDo,
+                     completed: this.chore.thursday.completed
+                  },
+               friday: {
+                     toDo: this.chore.friday.toDo,
+                     completed: this.chore.friday.completed
+                  },
+               saturday: {
+                     toDo: this.chore.saturday.toDo,
+                     completed: this.chore.saturday.completed
+                  },
+               sunday: {
+                     toDo: this.chore.sunday.toDo,
+                     completed: this.chore.sunday.completed
+                  }
+            };
+         break;
+         case 'tuesday':
+            this.updatedChore = {
+               task: this.chore.task,
+               points: this.chore.points,
+               monday: {
+                     toDo: this.chore.monday.toDo,
+                     completed: this.chore.monday.completed
+                  },
+               tuesday: {
+                     toDo: this.chore.tuesday.toDo,
+                     completed: true
+                  },
+               wednesday: {
+                     toDo: this.chore.wednesday.toDo,
+                     completed: this.chore.wednesday.completed
+                  },
+               thursday: {
+                     toDo: this.chore.thursday.toDo,
+                     completed: this.chore.thursday.completed
+                  },
+               friday: {
+                     toDo: this.chore.friday.toDo,
+                     completed: this.chore.friday.completed
+                  },
+               saturday: {
+                     toDo: this.chore.saturday.toDo,
+                     completed: this.chore.saturday.completed
+                  },
+               sunday: {
+                     toDo: this.chore.sunday.toDo,
+                     completed: this.chore.sunday.completed
+                  }
+            };
+         break;
+         case 'wednesday':
+            this.updatedChore = {
+               task: this.chore.task,
+               points: this.chore.points,
+               monday: {
+                     toDo: this.chore.monday.toDo,
+                     completed: this.chore.monday.completed
+                  },
+               tuesday: {
+                     toDo: this.chore.tuesday.toDo,
+                     completed: this.chore.tuesday.completed
+                  },
+               wednesday: {
+                     toDo: this.chore.wednesday.toDo,
+                     completed: true
+                  },
+               thursday: {
+                     toDo: this.chore.thursday.toDo,
+                     completed: this.chore.thursday.completed
+                  },
+               friday: {
+                     toDo: this.chore.friday.toDo,
+                     completed: this.chore.friday.completed
+                  },
+               saturday: {
+                     toDo: this.chore.saturday.toDo,
+                     completed: this.chore.saturday.completed
+                  },
+               sunday: {
+                     toDo: this.chore.sunday.toDo,
+                     completed: this.chore.sunday.completed
+                  }
+            };
+         break;
+         case 'thursday':
+            this.updatedChore = {
+               task: this.chore.task,
+               points: this.chore.points,
+               monday: {
+                     toDo: this.chore.monday.toDo,
+                     completed: this.chore.monday.completed
+                  },
+               tuesday: {
+                     toDo: this.chore.tuesday.toDo,
+                     completed: this.chore.tuesday.completed
+                  },
+               wednesday: {
+                     toDo: this.chore.wednesday.toDo,
+                     completed: this.chore.wednesday.completed
+                  },
+               thursday: {
+                     toDo: this.chore.thursday.toDo,
+                     completed: true
+                  },
+               friday: {
+                     toDo: this.chore.friday.toDo,
+                     completed: this.chore.friday.completed
+                  },
+               saturday: {
+                     toDo: this.chore.saturday.toDo,
+                     completed: this.chore.saturday.completed
+                  },
+               sunday: {
+                     toDo: this.chore.sunday.toDo,
+                     completed: this.chore.sunday.completed
+                  }
+            };
+         break;
+         case 'friday':
+            this.updatedChore = {
+               task: this.chore.task,
+               points: this.chore.points,
+               monday: {
+                     toDo: this.chore.monday.toDo,
+                     completed: this.chore.monday.completed
+                  },
+               tuesday: {
+                     toDo: this.chore.tuesday.toDo,
+                     completed: this.chore.tuesday.completed
+                  },
+               wednesday: {
+                     toDo: this.chore.wednesday.toDo,
+                     completed: this.chore.wednesday.completed
+                  },
+               thursday: {
+                     toDo: this.chore.thursday.toDo,
+                     completed: this.chore.thursday.completed
+                  },
+               friday: {
+                     toDo: this.chore.friday.toDo,
+                     completed: true
+                  },
+               saturday: {
+                     toDo: this.chore.saturday.toDo,
+                     completed: this.chore.saturday.completed
+                  },
+               sunday: {
+                     toDo: this.chore.sunday.toDo,
+                     completed: this.chore.sunday.completed
+                  }
+            };
+         break;
+         case 'saturday':
+            this.updatedChore = {
+               task: this.chore.task,
+               points: this.chore.points,
+               monday: {
+                     toDo: this.chore.monday.toDo,
+                     completed: this.chore.monday.completed
+                  },
+               tuesday: {
+                     toDo: this.chore.tuesday.toDo,
+                     completed: this.chore.tuesday.completed
+                  },
+               wednesday: {
+                     toDo: this.chore.wednesday.toDo,
+                     completed: this.chore.wednesday.completed
+                  },
+               thursday: {
+                     toDo: this.chore.thursday.toDo,
+                     completed: this.chore.thursday.completed
+                  },
+               friday: {
+                     toDo: this.chore.friday.toDo,
+                     completed: this.chore.friday.completed
+                  },
+               saturday: {
+                     toDo: this.chore.saturday.toDo,
+                     completed: true
+                  },
+               sunday: {
+                     toDo: this.chore.sunday.toDo,
+                     completed: this.chore.sunday.completed
+                  }
+            };
+         break;
+         case 'sunday':
+            this.updatedChore = {
+               task: this.chore.task,
+               points: this.chore.points,
+               monday: {
+                     toDo: this.chore.monday.toDo,
+                     completed: this.chore.monday.completed
+                  },
+               tuesday: {
+                     toDo: this.chore.tuesday.toDo,
+                     completed: this.chore.tuesday.completed
+                  },
+               wednesday: {
+                     toDo: this.chore.wednesday.toDo,
+                     completed: this.chore.wednesday.completed
+                  },
+               thursday: {
+                     toDo: this.chore.thursday.toDo,
+                     completed: this.chore.thursday.completed
+                  },
+               friday: {
+                     toDo: this.chore.friday.toDo,
+                     completed: this.chore.friday.completed
+                  },
+               saturday: {
+                     toDo: this.chore.saturday.toDo,
+                     completed: this.chore.saturday.completed
+                  },
+               sunday: {
+                     toDo: this.chore.sunday.toDo,
+                     completed: true
+                  }
+            };
+         break;
+      }
+      this.loggedInUser.chores = this.loggedInUser.chores.filter(chore => chore.task !== this.chore.task);
+      this.loggedInUser.chores.push(this.updatedChore);
+      $http({
+         method: 'PUT',
+         url: '/chores/update/' + this.loggedInUser._id,
+         data: {
+            chores: controller.loggedInUser.chores
+         }
+      }).then(
+         (response) => {
+            console.log(response.data);
+            // console.log(response.data.chores[0].monday.completed);
+            controller.loggedInUser.chores = response.data.chores;
+            console.log(this.loggedInUser.chores);
+            controller.loadPage();
+            this.updatedChore = null;
+         }
+      )
    }
 
    this.resetForm = function() {

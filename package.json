@@ -1,6 +1,9 @@
 {
   "name": "twenty-chore-seven",
   "version": "1.0.0",
+  "engines": {
+    "node": "12.4.0"
+  },
   "description": "",
   "main": "server.js",
   "scripts": {

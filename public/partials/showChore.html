@@ -4,37 +4,44 @@
    <h5>Days to {{ctrl.chore.task}}</h5>
    <h5 ng-if="ctrl.chore.monday.toDo">Monday</h5>
    <button type="button"
-      ng-if="ctrl.chore.monday.toDo && ctrl.chore.monday.completed">
+      ng-if="ctrl.chore.monday.toDo && ctrl.chore.monday.completed"
+      ng-click="ctrl.parentMarkedCompleted('monday')">
       Sign Off
    </button>
    <h5 ng-if="ctrl.chore.tuesday.toDo">Tuesday</h5>
    <button type="button"
-      ng-if="ctrl.chore.tuesday.toDo && ctrl.chore.tuesday.completed">
+      ng-if="ctrl.chore.tuesday.toDo && ctrl.chore.tuesday.completed"
+      ng-click="ctrl.parentMarkedCompleted('tuesday')">
       Sign Off
    </button>
    <h5 ng-if="ctrl.chore.wednesday.toDo">Wednesday</h5>
    <button type="button"
-      ng-if="ctrl.chore.wednesday.toDo && ctrl.chore.wednesday.completed">
+      ng-if="ctrl.chore.wednesday.toDo && ctrl.chore.wednesday.completed"
+      ng-click="ctrl.parentMarkedCompleted('wednesday')">
       Sign Off
    </button>
    <h5 ng-if="ctrl.chore.thursday.toDo">Thursday</h5>
    <button type="button"
-      ng-if="ctrl.chore.thursday.toDo && ctrl.chore.thursday.completed">
+      ng-if="ctrl.chore.thursday.toDo && ctrl.chore.thursday.completed"
+      ng-click="ctrl.parentMarkedCompleted('thursday')">
       Sign Off
    </button>
    <h5 ng-if="ctrl.chore.friday.toDo">Friday</h5>
    <button type="button"
-      ng-if="ctrl.chore.friday.toDo && ctrl.chore.friday.completed">
+      ng-if="ctrl.chore.friday.toDo && ctrl.chore.friday.completed"
+      ng-click="ctrl.parentMarkedCompleted('friday')">
       Sign Off
    </button>
    <h5 ng-if="ctrl.chore.saturday.toDo">Saturday</h5>
    <button type="button"
-      ng-if="ctrl.chore.saturday.toDo && ctrl.chore.saturday.completed">
+      ng-if="ctrl.chore.saturday.toDo && ctrl.chore.saturday.completed"
+      ng-click="ctrl.parentMarkedCompleted('saturday')">
       Sign Off
    </button>
    <h5 ng-if="ctrl.chore.sunday.toDo">Sunday</h5>
    <button type="button"
-      ng-if="ctrl.chore.sunday.toDo && ctrl.chore.sunday.completed">
+      ng-if="ctrl.chore.sunday.toDo && ctrl.chore.sunday.completed"
+      ng-click="ctrl.parentMarkedCompleted('sunday')">
       Sign Off
    </button>
    <h5>Earn {{ctrl.chore.points}} Points</h5>

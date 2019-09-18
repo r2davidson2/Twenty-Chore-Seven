@@ -269,6 +269,22 @@ app.controller('ChoresController', ['$http', function($http) {
       })
    }
 
+   this.resetForm = function() {
+      this.task = null;
+      this.points = null;
+      this.monday = null;
+      this.tuesday = null;
+      this.wednesday = null;
+      this.thursday = null;
+      this.friday = null;
+      this.saturday = null;
+      this.sunday = null;
+      this.loggedInUserId = null;
+   }
+
+   // ---------------------------
+   //  EXTRA POINT CHORES ROUTES
+   // ---------------------------
    this.showBonusPoints = function(type) {
       this.type = type;
       controller.includeRoute = 'partials/showBonusPoints.html'
@@ -293,8 +309,44 @@ app.controller('ChoresController', ['$http', function($http) {
          }
       }).then(
          (response) => {
-            // console.log(response);
+            this.bonusTask = null;
+            this.bonusPoints = null;
             controller.showBonusPoints()
+         }
+      )
+   }
+
+   this.updateExtraPointsForm = function(chore) {
+      this.type = null;
+      this.chore = chore;
+      this.includeRoute = `partials/updateExtraPointsChore.html`
+      this.bonusTask = this.chore.task;
+      this.bonusPoints = this.chore.points;
+   };
+
+   this.updateRemovePointsForm = function(chore) {
+      this.type = 'remove';
+      this.chore = chore;
+      this.includeRoute = `partials/updateExtraPointsChore.html`
+      this.bonusTask = this.chore.task;
+      this.bonusPoints = this.chore.points;
+   };
+
+   this.updateExtraPointsChore = function(chore) {
+      $http({
+         method: 'PUT',
+         url: '/extrapoints/' + chore._id,
+         data: {
+            task: this.bonusTask,
+            points: this.bonusPoints,
+            createdBy: controller.loggedInUser._id
+         }
+      }).then(
+         (response) => {
+            this.bonusTask = null;
+            this.bonusPoints = null;
+            this.chore = null;
+            controller.showBonusPoints(this.type)
          }
       )
    }
@@ -311,6 +363,9 @@ app.controller('ChoresController', ['$http', function($http) {
       )
    }
 
+   // ----------------------
+   //  CHILD ACCOUNT ROUTES
+   // ----------------------
    this.getChildren = function() {
          $http({
             method: 'GET',
@@ -1176,19 +1231,6 @@ app.controller('ChoresController', ['$http', function($http) {
             // controller.loadPage();
          }
       )
-   }
-
-   this.resetForm = function() {
-      this.task = null;
-      this.points = null;
-      this.monday = null;
-      this.tuesday = null;
-      this.wednesday = null;
-      this.thursday = null;
-      this.friday = null;
-      this.saturday = null;
-      this.sunday = null;
-      this.loggedInUserId = null;
    }
 
    // this.getChildren();

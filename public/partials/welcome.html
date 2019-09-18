@@ -1,3 +1,6 @@
+<!-- =================== -->
+<!-- PARENT ACCOUNT VIEW -->
+<!-- =================== -->
 <div class="">
    <div class="welcome" ng-if="ctrl.loggedInUser.admin"
       ng-repeat="child in ctrl.children | orderBy : 'name'">
@@ -7,26 +10,20 @@
       </div>
    </div>
    <div class="extra-points-card" ng-click="ctrl.showBonusPoints('bonus')">
-      <h1>Bonus Points</h1>
+      <h3>Bonus Points</h3>
    </div>
    <div class="extra-points-card" ng-click="ctrl.showBonusPoints('remove')">
-      <h1>Remove Points</h1>
+      <h3>Remove Points</h3>
    </div>
 </div>
 
-
+<!-- ================== -->
+<!-- CHILD ACCOUNT VIEW -->
+<!-- ================== -->
 <div class="">
    <h1 ng-if="!ctrl.loggedInUser.admin">Chores</h1>
    <div class="" ng-if="!ctrl.loggedInUser.admin"
       ng-repeat="chore in ctrl.loggedInUser.chores | orderBy : 'task'">
       <h2 ng-click="ctrl.childShowChore(chore)">{{ chore.task }}</h2>
-      <!-- <h4>Point: {{ chore.points }}</h4>
-      <h4 ng-if="chore.monday.toDo">Monday</h4>
-      <h4 ng-if="chore.tuesday.toDo">Tuesday</h4>
-      <h4 ng-if="chore.wednesday.toDo">Wednesday</h4>
-      <h4 ng-if="chore.thursday.toDo">Thursday</h4>
-      <h4 ng-if="chore.friday.toDo">Friday</h4>
-      <h4 ng-if="chore.saturday.toDo">Saturday</h4>
-      <h4 ng-if="chore.sunday.toDo">Sunday</h4> -->
    </div>
 </div>

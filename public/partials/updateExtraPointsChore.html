@@ -1,0 +1,15 @@
+<div class="">
+   <form class="" ng-submit="ctrl.updateExtraPointsChore(ctrl.chore)">
+      <input
+         type="text"
+         ng-model="ctrl.bonusTask"
+         ng-value="ctrl.chore.task"
+         required>
+      <input
+         type="number"
+         ng-model="ctrl.bonusPoints"
+         ng-value="ctrl.chore.points"
+         required>
+      <input type="submit" value="Update Bonus">
+   </form>
+</div>

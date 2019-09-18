@@ -16,6 +16,12 @@ router.post('/', (req, res) => {
    });
 });
 
+router.put('/:id', (req, res) => {
+   ExtraPoints.findByIdAndUpdate(req.params.id, req.body, {new:true}, (error, updatedExtraPointsChore) => {
+      res.json(updatedExtraPointsChore)
+   })
+})
+
 router.delete('/:id', (req, res) => {
    console.log(req.params);
    ExtraPoints.findByIdAndRemove(req.params.id, (error, deletedExtraPointsChore) => {

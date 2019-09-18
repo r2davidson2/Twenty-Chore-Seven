@@ -133,9 +133,11 @@ app.controller('ChoresController', ['$http', function($http) {
    // --------------
    this.chore = null;
    this.chores = [];
+   this.extraPointsChores = [];
    this.children = [];
    this.child = null;
    this.points = null;
+   this.type = null;
 
    this.showChore = (chore) => {
       controller.changeRoute('showChore');
@@ -265,6 +267,48 @@ app.controller('ChoresController', ['$http', function($http) {
          controller.resetForm();
          controller.showChild(this.child);
       })
+   }
+
+   this.showBonusPoints = function(type) {
+      this.type = type;
+      controller.includeRoute = 'partials/showBonusPoints.html'
+      $http({
+         method: 'GET',
+         url: '/extrapoints'
+      }).then((response) => {
+         this.extraPointsChores = response.data;
+         // console.log(this.extraPointsChores);
+         // controller.includeRoute = 'partials/addPoints.html'
+      })
+   }
+
+   this.addExtraPointsChore = function() {
+      $http({
+         method: 'POST',
+         url: '/extrapoints',
+         data: {
+            task: this.bonusTask,
+            points: this.bonusPoints,
+            createdBy: controller.loggedInUser._id
+         }
+      }).then(
+         (response) => {
+            // console.log(response);
+            controller.showBonusPoints()
+         }
+      )
+   }
+
+   this.deleteExtraPointsChore = function(id) {
+      $http({
+         method: 'DELETE',
+         url: '/extrapoints/' + id
+      }).then(
+         (response) => {
+            console.log(response);
+            controller.showBonusPoints();
+         }
+      )
    }
 
    this.getChildren = function() {

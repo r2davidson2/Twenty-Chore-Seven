@@ -53,6 +53,9 @@ app.use('/sessions', sessionsController);
 const choresController = require('./controllers/chores.js');
 app.use('/chores', choresController);
 
+const extraPointsController = require('./controllers/extraPoints.js');
+app.use('/extrapoints', extraPointsController);
+
 //___________________
 //Listener
 //___________________

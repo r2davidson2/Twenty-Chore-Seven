@@ -1,0 +1,29 @@
+<div class="show-bonus-points" ng-if="ctrl.type !== 'remove'">
+   <div class="show-bonus-points-card"
+      ng-repeat="bonus in ctrl.extraPointsChores"
+      ng-if="bonus.points > 0">
+      <h4>{{ bonus.task }}</h4>
+      <h4>Points: {{ bonus.points }}</h4>
+      <button type="button" ng-click="ctrl.deleteExtraPointsChore(bonus._id)">
+         Delete
+      </button>
+   </div>
+   <button type="button"
+      ng-click="ctrl.changeRoute('addExtraPointsChore')">
+      Add Bonus Chore
+   </button>
+</div>
+
+<div class="show-bonus-points" ng-if="ctrl.type === 'remove'">
+   <div class="show-bonus-points-card" ng-repeat="bonus in ctrl.extraPointsChores" ng-if="bonus.points < 0">
+      <h4>{{ bonus.task }}</h4>
+      <h4>Points: {{ bonus.points }}</h4>
+      <button type="button" ng-click="ctrl.deleteExtraPointsChore(bonus._id)">
+         Delete
+      </button>
+   </div>
+   <button type="button"
+      ng-click="ctrl.changeRoute('addExtraPointsChore')">
+      Add Bonus Chore
+   </button>
+</div>

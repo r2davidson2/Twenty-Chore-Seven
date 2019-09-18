@@ -4,55 +4,69 @@
          type="text"
          ng-model="ctrl.task"
          placeholder="Chore"
-         required><br>
+         required>
       <input
          type="number"
          ng-model="ctrl.points"
          placeholder="Points"
-         required/><br>
-      <label> Monday
-         <input
-            type="checkbox"
-            ng-model="ctrl.monday"
-            placeholder="Monday">
-      </label><br>
-      <label> Tuesday
-         <input
-            type="checkbox"
-            ng-model="ctrl.tuesday"
-            placeholder="">
-      </label><br>
-      <label> Wednesday
-         <input
-            type="checkbox"
-            ng-model="ctrl.wednesday"
-            placeholder="">
-      </label><br>
-      <label> Thursday
-         <input
-            type="checkbox"
-            ng-model="ctrl.thursday"
-            placeholder="">
-      </label><br>
-      <label> Friday
-         <input
-            type="checkbox"
-            ng-model="ctrl.friday"
-            placeholder="">
-      </label><br>
-      <label> Saturday
-         <input
-            type="checkbox"
-            ng-model="ctrl.saturday"
-            placeholder="">
-      </label><br>
-      <label> Sunday
-         <input
-            type="checkbox"
-            ng-model="ctrl.sunday"
-            placeholder="">
-      </label><br>
+         required/>
+      <div class="add-chore-day">
+         <label> Monday
+            <input
+               type="checkbox"
+               ng-model="ctrl.monday"
+               placeholder="Monday">
+         </label>
+      </div>
+      <div class="add-chore-day">
+         <label> Tuesday
+            <input
+               type="checkbox"
+               ng-model="ctrl.tuesday"
+               placeholder="">
+         </label>
+      </div>
+      <div class="add-chore-day">
+         <label> Wednesday
+            <input
+               type="checkbox"
+               ng-model="ctrl.wednesday"
+               placeholder="">
+         </label>
+      </div>
+      <div class="add-chore-day">
+         <label> Thursday
+            <input
+               type="checkbox"
+               ng-model="ctrl.thursday"
+               placeholder="">
+         </label>
+      </div>
+      <div class="add-chore-day">
+         <label> Friday
+            <input
+               type="checkbox"
+               ng-model="ctrl.friday"
+               placeholder="">
+         </label>
+      </div>
+      <div class="add-chore-day">
+         <label> Saturday
+            <input
+               type="checkbox"
+               ng-model="ctrl.saturday"
+               placeholder="">
+         </label>
+      </div>
+      <div class="add-chore-day">
+         <label> Sunday
+            <input
+               type="checkbox"
+               ng-model="ctrl.sunday"
+               placeholder="">
+         </label>
+      </div>
       <input type="submit" value="Add Chore">
    </form>
-   <button type="button" ng-click="ctrl.showChild(ctrl.child)">Back</button>
+   <!-- <button type="button" ng-click="ctrl.showChild(ctrl.child)">Back</button> -->
 </div>

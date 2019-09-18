@@ -1,15 +1,24 @@
-<div class="welcome" ng-if="ctrl.loggedInUser.admin"
-   ng-repeat="child in ctrl.children">
-   <div class="child-card" ng-click="ctrl.showChild(child)">
-      <h1 >{{ child.name }}</h1>
-      <h3>{{ child.points }} Points</h3>
+<div class="">
+   <div class="welcome" ng-if="ctrl.loggedInUser.admin"
+      ng-repeat="child in ctrl.children | orderBy : 'name'">
+      <div class="child-card" ng-click="ctrl.showChild(child)">
+         <h1>{{ child.name }}</h1>
+         <h3>{{ child.points }} Points</h3>
+      </div>
+   </div>
+   <div class="extra-points-card" ng-click="ctrl.showBonusPoints('bonus')">
+      <h1>Bonus Points</h1>
+   </div>
+   <div class="extra-points-card" ng-click="ctrl.showBonusPoints('remove')">
+      <h1>Remove Points</h1>
    </div>
 </div>
+
 
 <div class="">
    <h1 ng-if="!ctrl.loggedInUser.admin">Chores</h1>
    <div class="" ng-if="!ctrl.loggedInUser.admin"
-      ng-repeat="chore in ctrl.loggedInUser.chores">
+      ng-repeat="chore in ctrl.loggedInUser.chores | orderBy : 'task'">
       <h2 ng-click="ctrl.childShowChore(chore)">{{ chore.task }}</h2>
       <!-- <h4>Point: {{ chore.points }}</h4>
       <h4 ng-if="chore.monday.toDo">Monday</h4>

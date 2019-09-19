@@ -1222,6 +1222,7 @@ app.controller('ChoresController', ['$http', function($http) {
          url: '/rewards'
       }).then(
          (response) => {
+            this.reward = null;
             this.rewards = response.data;
             controller.includeRoute = 'partials/showRewards.html'
          }
@@ -1246,17 +1247,25 @@ app.controller('ChoresController', ['$http', function($http) {
       )
    };
 
-   this.updateReward = function(reward) {
+   this.setUpdateReward = function(reward) {
+      this.reward = reward
+      this.updatedReward = reward.reward;
+      this.updatedPrice = reward.price
+      console.log(this.reward);
+      this.includeRoute = `partials/updateReward.html`
+   }
+   this.updateReward = function() {
       $http({
          method: 'PUT',
-         url: '/rewards/' + reward._id,
+         url: '/rewards/' + this.reward._id,
          data: {
-            reward: this.reward,
-            price: this.price,
+            reward: this.updatedReward,
+            price: this.updatedPrice,
          }
       }).then(
          (response) => {
             console.log(response);
+            this.reward = null;
             controller.showRewards();
          }
       )

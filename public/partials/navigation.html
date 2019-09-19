@@ -69,7 +69,15 @@
    ng-click="ctrl.addPoints()">
    Cancel
 </button>
-
+<!-- ========================= -->
+<!--  showRewards CANCEL BUTTON  -->
+<!-- ========================= -->
+<button
+   ng-if="ctrl.loggedInUser.admin &&
+      ctrl.includeRoute == 'partials/updateReward.html'"
+   ng-click="ctrl.showRewards()">
+   Cancel
+</button>
 <!-- ===================== -->
 <!--  POINTS BALANCE VIEW  -->
 <!-- ===================== -->

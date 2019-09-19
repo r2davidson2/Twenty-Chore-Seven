@@ -56,6 +56,9 @@ app.use('/chores', choresController);
 const extraPointsController = require('./controllers/extraPoints.js');
 app.use('/extrapoints', extraPointsController);
 
+const rewardsController = require('./controllers/rewards.js');
+app.use('/rewards', rewardsController);
+
 //___________________
 //Listener
 //___________________

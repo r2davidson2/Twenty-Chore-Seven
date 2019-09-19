@@ -43,7 +43,7 @@ h4, h5 {
 .create-account > button {
    margin-top: 10px;
 }
-.child-card, .extra-points-card, .show-bonus-points-card, .child-chores {
+.child-card, .extra-points-card, .show-bonus-points-card, .child-chores, .reward-card {
    display: flex;
    justify-content: space-between;
    align-items: center;

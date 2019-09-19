@@ -29,7 +29,8 @@
 <button
    ng-if="ctrl.loggedInUser.admin &&
       ctrl.includeRoute == 'partials/showChild.html'
-      || ctrl.includeRoute == 'partials/showBonusPoints.html'"
+      || ctrl.includeRoute == 'partials/showBonusPoints.html'
+      || ctrl.includeRoute == 'partials/showRewards.html'"
    ng-click="ctrl.loadPage()">
    Back
 </button>
@@ -68,6 +69,7 @@
    ng-click="ctrl.addPoints()">
    Cancel
 </button>
+
 <!-- ===================== -->
 <!--  POINTS BALANCE VIEW  -->
 <!-- ===================== -->

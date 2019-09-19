@@ -261,15 +261,15 @@ app.controller('ChoresController', ['$http', function($http) {
                         toDo: this.sunday || false,
                         completed: false
                      },
-                  createdBy: this.loggedInUserId
+                  createdBy: this.loggedInUser._id
                }
       }).then((response) => {
-         controller.resetForm();
+         controller.resetChoreForm();
          controller.showChild(this.child);
       })
    }
 
-   this.resetForm = function() {
+   this.resetChoreForm = function() {
       this.task = null;
       this.points = null;
       this.monday = null;
@@ -279,7 +279,6 @@ app.controller('ChoresController', ['$http', function($http) {
       this.friday = null;
       this.saturday = null;
       this.sunday = null;
-      this.loggedInUserId = null;
    }
 
    // ---------------------------
@@ -364,7 +363,7 @@ app.controller('ChoresController', ['$http', function($http) {
    }
 
    this.showAddExtraPoints = function(type) {
-      console.log(this.child);
+      // console.log(this.child);
       this.type = type;
       controller.includeRoute = 'partials/addExtraPoints.html'
       $http({
@@ -429,58 +428,7 @@ app.controller('ChoresController', ['$http', function($http) {
    };
 
    this.markCompleted = function(day) {
-      this.updatedChore = {
-         task: this.chore.task,
-         points: this.chore.points,
-         // monday: {
-         //       toDo: this.chore.monday.toDo,
-         //       if (day === 'monday') {
-         //          completed: true
-         //       } else {
-         //          completed: false
-         //       }
-         //    },
-         tuesday: {
-               toDo: this.chore.tuesday.toDo,
-               completed: false
-            },
-         wednesday: {
-               toDo: this.chore.wednesday.toDo,
-               completed: false
-            },
-         thursday: {
-               toDo: this.chore.thursday.toDo,
-               completed: false
-            },
-         friday: {
-               toDo: this.chore.friday.toDo,
-               completed: false
-            },
-         saturday: {
-               toDo: this.chore.saturday.toDo,
-               completed: false
-            },
-         sunday: {
-               toDo: this.chore.sunday.toDo,
-               completed: false
-            },
-      }
-      this.chores = this.chores.filter(chore => chore.task !== task);
-      this.chores.push(this.updatedChore);
-      $http({
-         method: 'PUT',
-         url: '/chores/update/' + this.loggedInUser._id,
-         data: {
-            task: this.chore.task,
-            day: day
-         }
-      }).then(
-         (response) => {
-            // console.log(response);
-            this.updatedChore = null;
-            // controller.showChild(this.child);
-         }
-      )
+
    }
 
    this.temporaryMarkCompleted = function(day) {
@@ -1264,6 +1212,72 @@ app.controller('ChoresController', ['$http', function($http) {
       )
    }
 
+   // ---------------
+   //  REWARD ROUTES
+   // ---------------
+
+   this.showRewards = function() {
+      $http({
+         method: 'GET',
+         url: '/rewards'
+      }).then(
+         (response) => {
+            this.rewards = response.data;
+            controller.includeRoute = 'partials/showRewards.html'
+         }
+      )
+   }
+
+   this.createReward = function() {
+      // console.log(this.loggedInUser);
+      $http({
+         method: 'POST',
+         url: '/rewards',
+         data: {
+            reward: this.reward,
+            price: this.price,
+            createdBy: this.loggedInUser._id
+         }
+      }).then(
+         (response) => {
+            controller.resetRewardForm();
+            controller.showRewards();
+         }
+      )
+   };
+
+   this.updateReward = function(reward) {
+      $http({
+         method: 'PUT',
+         url: '/rewards/' + reward._id,
+         data: {
+            reward: this.reward,
+            price: this.price,
+         }
+      }).then(
+         (response) => {
+            console.log(response);
+            controller.showRewards();
+         }
+      )
+   };
+
+   this.deleteReward = function(reward) {
+      $http({
+         method: 'DELETE',
+         url: '/rewards/' + reward._id
+      }).then(
+         (response) => {
+            console.log(response);
+            controller.showRewards();
+         }
+      )
+   };
+
+   this.resetRewardForm = function() {
+      this.reward = null;
+      this.price = null;
+   }
    // this.getChildren();
 
 }])

@@ -1,18 +1,20 @@
 <!-- =================== -->
 <!-- PARENT ACCOUNT VIEW -->
 <!-- =================== -->
-<div class="">
-   <div class="welcome" ng-if="ctrl.loggedInUser.admin"
+<div class="" ng-if="ctrl.loggedInUser.admin">
+   <div class="welcome"
       ng-repeat="child in ctrl.children | orderBy : 'name'">
       <div class="child-card" ng-click="ctrl.showChild(child)">
          <h1>{{ child.name }}</h1>
          <h3>{{ child.points }} Points</h3>
       </div>
    </div>
-   <div class="extra-points-card" ng-click="ctrl.showBonusPoints('bonus')">
+   <div class="extra-points-card"
+      ng-click="ctrl.showBonusPoints('bonus')">
       <h3>Bonus Points</h3>
    </div>
-   <div class="extra-points-card" ng-click="ctrl.showBonusPoints('remove')">
+   <div class="extra-points-card"
+      ng-click="ctrl.showBonusPoints('remove')">
       <h3>Remove Points</h3>
    </div>
 </div>
@@ -22,7 +24,7 @@
 <!-- ================== -->
 <div class="">
    <h1 ng-if="!ctrl.loggedInUser.admin">Chores</h1>
-   <div class="" ng-if="!ctrl.loggedInUser.admin"
+   <div class="child-chores" ng-if="!ctrl.loggedInUser.admin"
       ng-repeat="chore in ctrl.loggedInUser.chores | orderBy : 'task'">
       <h2 ng-click="ctrl.childShowChore(chore)">{{ chore.task }}</h2>
    </div>

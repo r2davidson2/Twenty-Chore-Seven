@@ -363,6 +363,37 @@ app.controller('ChoresController', ['$http', function($http) {
       )
    }
 
+   this.showAddExtraPoints = function(type) {
+      console.log(this.child);
+      this.type = type;
+      controller.includeRoute = 'partials/addExtraPoints.html'
+      $http({
+         method: 'GET',
+         url: '/extrapoints'
+      }).then((response) => {
+         this.extraPointsChores = response.data;
+      })
+   }
+
+   this.addExtraPoints = function(points) {
+      // console.log('clicked');
+      this.points = this.child.points += points;
+      console.log('new point total is: ', this.points);
+      $http({
+         method: 'PUT',
+         url: '/chores/update/' + this.child._id,
+         data: {
+            points: this.points
+         }
+      }).then(
+         (response) => {
+            this.points = null;
+            controller.showChild(this.child);
+         }
+      )
+
+   }
+
    // ----------------------
    //  CHILD ACCOUNT ROUTES
    // ----------------------

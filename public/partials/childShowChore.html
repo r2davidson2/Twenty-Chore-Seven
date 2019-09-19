@@ -1,61 +1,76 @@
-<div class="">
+<div class="child-show-chore">
    <h1>{{ ctrl.chore.task }}</h1>
    <h4>Points: {{ ctrl.chore.points }}</h4>
-   <h4 ng-if="ctrl.chore.monday.toDo">
-      Monday
-   </h4>
-   <button type="button"
-      ng-if="ctrl.chore.monday.toDo && !ctrl.chore.monday.completed"
-      ng-click="ctrl.temporaryMarkCompleted('monday')">
-      Finished
-   </button>
-   <h4 ng-if="ctrl.chore.tuesday.toDo">
-      Tuesday
-   </h4>
-   <button type="button"
-      ng-if="ctrl.chore.tuesday.toDo && !ctrl.chore.tuesday.completed"
-      ng-click="ctrl.temporaryMarkCompleted('tuesday')">
-      Finished
-   </button>
-   <h4 ng-if="ctrl.chore.wednesday.toDo">
-      Wednesday
-   </h4>
-   <button type="button"
-      ng-if="ctrl.chore.wednesday.toDo && !ctrl.chore.wednesday.completed"
-      ng-click="ctrl.temporaryMarkCompleted('wednesday')">
-      Finished
-   </button>
-   <h4 ng-if="ctrl.chore.thursday.toDo">
-      Thursday
-   </h4>
-   <button type="button"
-      ng-if="ctrl.chore.thursday.toDo && !ctrl.chore.thursday.completed"
-      ng-click="ctrl.temporaryMarkCompleted('thursday')">
-      Finished
-   </button>
-   <h4 ng-if="ctrl.chore.friday.toDo">
-      Friday
-   </h4>
-   <button type="button"
-      ng-if="ctrl.chore.friday.toDo && !ctrl.chore.friday.completed"
-      ng-click="ctrl.temporaryMarkCompleted('friday')">
-      Finished
-   </button>
-   <h4 ng-if="ctrl.chore.saturday.toDo">
-      Saturday
-   </h4>
-   <button type="button"
-      ng-if="ctrl.chore.saturday.toDo && !ctrl.chore.saturday.completed"
-      ng-click="ctrl.temporaryMarkCompleted('saturday')">
-      Finished
-   </button>
-   <h4 ng-if="ctrl.chore.sunday.toDo">
-      Sunday
-   </h4>
-   <button type="button"
-      ng-if="ctrl.chore.sunday.toDo && !ctrl.chore.sunday.completed"
-      ng-click="ctrl.temporaryMarkCompleted('sunday')">
-      Finished
-   </button>
+   <div class="child-show-chore-day" ng-if="ctrl.chore.monday.toDo">
+      <h4>
+         Monday
+      </h4>
+      <button type="button"
+         ng-if="ctrl.chore.monday.toDo && !ctrl.chore.monday.completed"
+         ng-click="ctrl.temporaryMarkCompleted('monday')">
+         Finished
+      </button>
+   </div>
+   <div class="child-show-chore-day" ng-if="ctrl.chore.tuesday.toDo">
+      <h4 >
+         Tuesday
+      </h4>
+      <button type="button"
+         ng-if="ctrl.chore.tuesday.toDo && !ctrl.chore.tuesday.completed"
+         ng-click="ctrl.temporaryMarkCompleted('tuesday')">
+         Finished
+      </button>
+   </div>
+   <div class="child-show-chore-day" ng-if="ctrl.chore.wednesday.toDo">
+      <h4>
+         Wednesday
+      </h4>
+      <button type="button"
+         ng-if="ctrl.chore.wednesday.toDo && !ctrl.chore.wednesday.completed"
+         ng-click="ctrl.temporaryMarkCompleted('wednesday')">
+         Finished
+      </button>
+   </div>
+   <div class="child-show-chore-day" ng-if="ctrl.chore.thursday.toDo">
+      <h4>
+         Thursday
+      </h4>
+      <button type="button"
+         ng-if="ctrl.chore.thursday.toDo && !ctrl.chore.thursday.completed"
+         ng-click="ctrl.temporaryMarkCompleted('thursday')">
+         Finished
+      </button>
+   </div>
+   <div class="child-show-chore-day" ng-if="ctrl.chore.friday.toDo">
+      <h4>
+         Friday
+      </h4>
+      <button type="button"
+         ng-if="ctrl.chore.friday.toDo && !ctrl.chore.friday.completed"
+         ng-click="ctrl.temporaryMarkCompleted('friday')">
+         Finished
+      </button>
+   </div>
+   <div class="child-show-chore-day" ng-if="ctrl.chore.saturday.toDo">
+      <h4>
+         Saturday
+      </h4>
+      <button type="button"
+         ng-if="ctrl.chore.saturday.toDo && !ctrl.chore.saturday.completed"
+         ng-click="ctrl.temporaryMarkCompleted('saturday')">
+         Finished
+      </button>
+   </div>
+   <div class="child-show-chore-day" ng-if="ctrl.chore.sunday.toDo">
+      <h4>
+         Sunday
+      </h4>
+      <button type="button"
+         ng-if="ctrl.chore.sunday.toDo && !ctrl.chore.sunday.completed"
+         ng-click="ctrl.temporaryMarkCompleted('sunday')">
+         Finished
+      </button>
+   </div>
+   <br>
    <button type="button" ng-click="ctrl.changeRoute('welcome')">Home</button>
 </div>

@@ -1,11 +1,18 @@
 <div class="">
    <h1>{{ ctrl.child.name}}</h1>
    <h3>Points: {{ ctrl.child.points}}</h3>
-   <div ng-repeat="chore in ctrl.child.chores | orderBy : 'task'" class="chore"
+   <!-- ============== -->
+   <!-- CHILD's CHORES -->
+   <!-- ============== -->
+   <div class="chore"
+      ng-repeat="chore in ctrl.child.chores | orderBy : 'task'"
       ng-click="ctrl.showChore(chore)">
       <h4>{{chore.task}}</h4>
       <h5>Earn {{chore.points}} Points</h5>
    </div>
+   <!-- ==================== -->
+   <!-- BONUS POINTS BUTTONS -->
+   <!-- ==================== -->
    <div class="extra-points-card"
       ng-click="ctrl.showAddExtraPoints('bonus')">
       <h4>Bonus Points</h4>
@@ -18,6 +25,12 @@
       ng-click="ctrl.showAddExtraPoints()">
       Add Chore
    </button>
-   <button type="button" ng-click="ctrl.deleteChild(ctrl.child)">Remove Child</button>
+   <!-- ==================== -->
+   <!-- DELETE CHILD ACCOUNT -->
+   <!-- ==================== -->
+   <button type="button"
+      ng-click="ctrl.deleteChild(ctrl.child)">
+      Remove Child
+   </button>
    <!-- <button type="button" ng-click="ctrl.loadPage()">Back</button> -->
 </div>

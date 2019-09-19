@@ -37,7 +37,8 @@
 <!-- showChild BACK BUTTON -->
 <!-- ===================== -->
 <button
-   ng-if="ctrl.includeRoute == 'partials/showChore.html'"
+   ng-if="ctrl.includeRoute == 'partials/showChore.html'
+      || ctrl.includeRoute == 'partials/addExtraPoints.html'"
    ng-click="ctrl.showChild(ctrl.child)">
    Back
 </button>

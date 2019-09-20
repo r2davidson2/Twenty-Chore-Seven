@@ -1254,6 +1254,7 @@ app.controller('ChoresController', ['$http', function($http) {
       console.log(this.reward);
       this.includeRoute = `partials/updateReward.html`
    }
+   
    this.updateReward = function() {
       $http({
          method: 'PUT',

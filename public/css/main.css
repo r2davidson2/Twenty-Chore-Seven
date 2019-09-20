@@ -14,12 +14,29 @@ main {
    margin: 10px;
    text-transform: capitalize;
 }
-nav {
-   /* background: #19134B; */
-   /* color:  */
-   /* display: grid;
-   grid-template-columns: 15% 70% 15%; */
-
+.navbar {
+   background: transparent;
+   color: #03A4D7;
+   text-align: right;
+   /* text-decoration: underline;
+   cursor: pointer;
+   color: ghostwhite; */
+}
+.navbar-toggler {
+   background: #03A4D7;
+   /* outline-color: #03A4D7; */
+   /* color: black; */
+}
+.navbar-toggler-icon {
+   color: black;
+}
+.nav-item {
+   font-size: 1.5rem;
+}
+ .nav-item:hover {
+   text-decoration: underline;
+   cursor: pointer;
+   /* color: ghostwhite; */
 }
 nav > button {
    justify-content: space-between;
@@ -104,4 +121,7 @@ h4, h5 {
 }
 .child-show-chore > button {
    /* margin: 5px 0; */
+}
+.fa-bars, .navbar-toggler-icon {
+   color: #03A4D7;
 }

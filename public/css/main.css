@@ -23,6 +23,7 @@ nav {
 }
 nav > button {
    justify-content: space-between;
+   margin-top: 10px;
 }
 form {
    display: flex;

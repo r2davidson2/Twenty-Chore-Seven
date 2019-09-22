@@ -5,7 +5,10 @@
    <div class="show-bonus-points-card"
       ng-repeat="bonus in ctrl.extraPointsChores | orderBy : 'task'"
       ng-if="bonus.points > 0">
-      <h4>{{ bonus.task }}</h4>
+      <div class="show-bonus-points-card-bonus">
+         <h4>{{ bonus.task }}</h4>
+         <h5>Points: {{ bonus.points }}</h5>
+      </div>
       <div class="">
          <button type="button"
             ng-click="ctrl.updateExtraPointsForm(bonus)">
@@ -30,8 +33,10 @@
    <div class="show-bonus-points-card"
       ng-repeat="bonus in ctrl.extraPointsChores | orderBy : 'task'"
       ng-if="bonus.points < 0">
-      <h4>{{ bonus.task }}</h4>
-      <h4>Points: {{ bonus.points }}</h4>
+      <div class="show-bonus-points-card-bonus">
+         <h4>{{ bonus.task }}</h4>
+         <h5>Points: {{ bonus.points }}</h5>
+      </div>
       <div class="">
          <button type="button"
             ng-click="ctrl.updateRemovePointsForm(bonus)">

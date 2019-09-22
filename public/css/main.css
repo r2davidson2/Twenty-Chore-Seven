@@ -11,17 +11,54 @@ body {
    color: #03A4D7;
 }
 main {
-   margin: 10px;
+   margin: 25px;
    text-transform: capitalize;
+}
+.welcome-container, .rewards {
+   margin-top: 20px;
 }
 .navbar {
    background: transparent;
    color: #03A4D7;
    text-align: right;
-   /* text-decoration: underline;
-   cursor: pointer;
-   color: ghostwhite; */
+   /* display: flex; */
+   /* justify-content: space-between; */
+   /* overflow: hidden; */
 }
+/* .mynavbar > a {
+   text-decoration: none;
+} */
+/* .mydropdown { */
+   /* overflow: hidden; */
+   /* text-align: right; */
+   /* margin: 10px; */
+/* } */
+/* .mydropdown > button {
+   text-align: right;
+   margin: 0;
+}
+.mydropdown-content {
+   margin-right: 10px;
+   padding: 0 10px;
+   display: none;
+   position: absolute;
+   z-index: 1;
+   background: white;
+   text-align: right;
+}
+.mydropdown-content > a {
+   display: block;
+   text-align: right;
+   cursor: pointer;
+}
+.mydropdown-content > a:hover {
+   text-decoration: underline;
+   cursor: pointer;
+   color: ghostwhite;
+}
+.mydropdown:hover > .mydropdown-content {
+   display: block;
+} */
 .navbar-toggler {
    background: #03A4D7;
    /* outline-color: #03A4D7; */
@@ -30,13 +67,20 @@ main {
 .navbar-toggler-icon {
    color: black;
 }
+.navbar-nav {
+   position: absolute;
+   right: 15px;
+   z-index: 1000;
+   background: rgba(0, 0, 0, 0.90);
+   padding: 10px;
+}
 .nav-item {
    font-size: 1.5rem;
 }
  .nav-item:hover {
    text-decoration: underline;
    cursor: pointer;
-   /* color: ghostwhite; */
+   color: ghostwhite;
 }
 nav > button {
    justify-content: space-between;
@@ -55,13 +99,19 @@ button, input[type="submit"]{
    border-color: inherit;
    color: #03A4D7;
 }
+nav > button {
+   justify-content: space-between;
+   margin: 10px;
+   /* height: 30px; */
+   /* border: none; */
+}
 h4, h5 {
    margin: 0;
 }
 .create-account > button {
    margin-top: 10px;
 }
-.child-card, .extra-points-card, .show-bonus-points-card, .child-chores, .reward-card {
+.extra-points-card, .show-bonus-points-card, .child-chores, .reward-card {
    display: flex;
    justify-content: space-between;
    align-items: center;
@@ -72,6 +122,9 @@ h4, h5 {
    cursor: pointer;
    background-color: rgba(255, 255, 255, 0.2);
    background-color: rgba(0, 0, 0, 0.2);
+}
+.child-chores:hover, .reward-card:hover {
+   text-decoration: underline;
 }
 .chore {
    display: flex;
@@ -122,6 +175,77 @@ h4, h5 {
 .child-show-chore > button {
    /* margin: 5px 0; */
 }
-.fa-bars, .navbar-toggler-icon {
+/* .mydropbtn {
+   width: 50px;
+   height: 50px;
+} */
+/* .fa-bars {
    color: #03A4D7;
+   width: 50px;
+   height: 50px;
+} */
+.welcome-parent {
+   display: flex;
+   justify-content: space-between;
+}
+.child-card {
+   /* width: 20%; */
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   border: 2px solid #03A4D7;
+   border-radius: 5px;
+   margin: 10px 0;
+   padding: 10px;
+   cursor: pointer;
+   background-color: rgba(255, 255, 255, 0.2);
+   background-color: rgba(0, 0, 0, 0.2);
+}
+.show-bonus-points-card-bonus > h4 {
+   margin: 0;
+}
+.show-bonus-points-card-bonus > h5 {
+   /* margin-top: -5px; */
+}
+
+/* MOBILE STYLING */
+@media screen and (max-width: 600px) {
+   body {
+      /* background: blue; */
+      text-align: center;
+   }
+   nav > button {
+      font-size: 130%;
+   }
+   button {
+      font-size: 130%;
+      display: block;
+      text-align: center;
+      margin: 0 auto 10px auto;
+   }
+   .add-bonus-points {
+      max-width: 50%;
+      /* color: ghostwhite;  */
+   }
+   .extra-points-card-button {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+   }
+   .extra-points-card, .show-bonus-points-card, .child-chores, .reward-card, .add-bonus-points {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+   }
+   .show-bonus-points-card {
+      text-align: left;
+   }
+   .show-bonus-points-card > button {
+      margin: 0;
+   }
 }

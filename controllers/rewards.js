@@ -8,6 +8,13 @@ router.get('/', (req, res) => {
    });
 });
 
+router.get('/store', (req, res) => {
+   // console.log(req.session);
+   Rewards.find({createdBy: req.session.currentUser.parent}, (error, foundRewards) => {
+      res.json(foundRewards);
+   });
+});
+
 router.delete('/:id', (req, res) => {
    Rewards.findByIdAndRemove(req.params.id, (error, deletedReward) => {
       res.json(deletedReward);

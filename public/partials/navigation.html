@@ -1,99 +1,3 @@
-<!-- =================== -->
-<!--    LOGIN BUTTON     -->
-<!-- =================== -->
-<!-- <button
-   ng-if="!ctrl.loggedInUser"
-   ng-click="ctrl.changeRoute('login')">
-   Login
-</button> -->
-<!-- =================== -->
-<!--   CREATE ACCOUNT    -->
-<!-- =================== -->
-<!-- <button
-   ng-if="!ctrl.loggedInUser"
-   ng-click="ctrl.changeRoute('createParentAccount')">
-   Create Account
-</button> -->
-<!-- =================== -->
-<!--  ADD CHILD ACCOUNT  -->
-<!-- =================== -->
-<!-- <button
-   ng-if="ctrl.loggedInUser.admin &&
-         ctrl.includeRoute == 'partials/welcome.html'"
-   ng-click="ctrl.changeRoute('createChildAccount')">
-   Add Child
-</button> -->
-<!-- ====================== -->
-<!--  loadPage BACK BUTTON  -->
-<!-- ====================== -->
-<!-- <button
-   ng-if="ctrl.loggedInUser.admin &&
-      ctrl.includeRoute == 'partials/showChild.html'
-      || ctrl.includeRoute == 'partials/showBonusPoints.html'
-      || ctrl.includeRoute == 'partials/showRewards.html'"
-   ng-click="ctrl.loadPage()">
-   Back
-</button> -->
-<!-- ===================== -->
-<!-- showChild BACK BUTTON -->
-<!-- ===================== -->
-<!-- <button
-   ng-if="ctrl.includeRoute == 'partials/showChore.html'
-      || ctrl.includeRoute == 'partials/addExtraPoints.html'"
-   ng-click="ctrl.showChild(ctrl.child)">
-   Back
-</button> -->
-<!-- ========================= -->
-<!--  showChild CANCEL BUTTON  -->
-<!-- ========================= -->
-<!-- <button
-   ng-if="ctrl.includeRoute == 'partials/addChore.html'"
-   ng-click="ctrl.showChild(ctrl.child)">
-   Cancel
-</button> -->
-<!-- ============================= -->
-<!--  showBonusPoints BACK BUTTON  -->
-<!-- ============================= -->
-<!-- <button
-   ng-if="ctrl.loggedInUser.admin &&
-      ctrl.includeRoute == 'partials/updateExtraPointsChore.html'"
-   ng-click="ctrl.showBonusPoints()">
-   Back
-</button> -->
-<!-- ========================= -->
-<!--  addPoints CANCEL BUTTON  -->
-<!-- ========================= -->
-<!-- <button
-   ng-if="ctrl.loggedInUser.admin &&
-      ctrl.includeRoute == 'partials/addExtraPointsChore.html'"
-   ng-click="ctrl.addPoints()">
-   Cancel
-</button> -->
-<!-- ========================= -->
-<!--  showRewards CANCEL BUTTON  -->
-<!-- ========================= -->
-<!-- <button
-   ng-if="ctrl.loggedInUser.admin &&
-      ctrl.includeRoute == 'partials/updateReward.html'"
-   ng-click="ctrl.showRewards()">
-   Cancel
-</button> -->
-<!-- ===================== -->
-<!--  POINTS BALANCE VIEW  -->
-<!-- ===================== -->
-<!-- <button
-   ng-if="ctrl.loggedInUser && !ctrl.loggedInUser.admin">
-   Total Points: {{ctrl.loggedInUser.points}}
-</button> -->
-<!-- =============== -->
-<!--  LOGOUT BUTTON  -->
-<!-- =============== -->
-<!-- <button
-   ng-if="ctrl.loggedInUser"
-   ng-click="ctrl.logout()">
-   Logout
-</button> -->
-
 <!-- =============== -->
 <!--     NAV BAR     -->
 <!-- =============== -->
@@ -124,7 +28,8 @@
          ng-if="ctrl.loggedInUser.admin &&
             ctrl.includeRoute == 'partials/showChild.html'
             || ctrl.includeRoute == 'partials/showBonusPoints.html'
-            || ctrl.includeRoute == 'partials/showRewards.html'"
+            || ctrl.includeRoute == 'partials/showRewards.html'
+            || ctrl.includeRoute == 'partials/createChildAccount.html'"
          ng-click="ctrl.loadPage()">
          Back
       </button>
@@ -175,9 +80,24 @@
       <!-- ===================== -->
       <!--  POINTS BALANCE VIEW  -->
       <!-- ===================== -->
+      <h3
+         ng-if="ctrl.loggedInUser && !ctrl.loggedInUser.admin
+            && ctrl.includeRoute === 'partials/welcome.html'">
+         You Have {{ctrl.loggedInUser.points}} Points
+      </h3>
+
       <button
-         ng-if="ctrl.loggedInUser && !ctrl.loggedInUser.admin">
-         Total Points: {{ctrl.loggedInUser.points}}
+         ng-if="!ctrl.loggedInUser.admin &&
+            ctrl.includeRoute == 'partials/rewardStore.html'"
+         ng-click="ctrl.loadPage()">
+         Back
+      </button>
+
+      <button type="button"
+         ng-if="!ctrl.loggedInUser.admin &&
+         ctrl.includeRoute == 'partials/childShowChore.html'"
+         ng-click="ctrl.changeRoute('welcome')">
+         Back
       </button>
 
       <button ng-if="ctrl.loggedInUser" class="navbar-toggler" type="button" data-toggle="dropdown" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -210,6 +130,13 @@
           </li>
           <li class="nav-item">
              <a
+               ng-if="!ctrl.loggedInUser.admin"
+               ng-click="ctrl.rewardStore()">
+               Rewards Store
+            </a>
+          </li>
+          <li class="nav-item">
+             <a
                ng-if="ctrl.loggedInUser"
                ng-click="ctrl.logout()">
                Logout
@@ -218,3 +145,129 @@
         </ul>
       </div>
 </nav>
+
+<!-- =============== -->
+<!--   MY NAV BAR    -->
+<!-- =============== -->
+<!-- <nav class="mynavbar">
+      <button
+         ng-if="!ctrl.loggedInUser"
+         ng-click="ctrl.changeRoute('login')">
+         Login
+      </button>
+      <button
+         ng-if="!ctrl.loggedInUser"
+         ng-click="ctrl.changeRoute('createParentAccount')">
+         Create Account
+      </button> -->
+      <!-- =================== -->
+      <!--  ADD CHILD ACCOUNT  -->
+      <!-- =================== -->
+      <!-- <button
+         ng-if="ctrl.loggedInUser.admin &&
+               ctrl.includeRoute == 'partials/welcome.html'"
+         ng-click="ctrl.changeRoute('createChildAccount')">
+         Add Child
+      </button> -->
+      <!-- ====================== -->
+      <!--  loadPage BACK BUTTON  -->
+      <!-- ====================== -->
+      <!-- <button
+         ng-if="ctrl.loggedInUser.admin &&
+            ctrl.includeRoute == 'partials/showChild.html'
+            || ctrl.includeRoute == 'partials/showBonusPoints.html'
+            || ctrl.includeRoute == 'partials/showRewards.html'"
+         ng-click="ctrl.loadPage()">
+         Back
+      </button> -->
+      <!-- ===================== -->
+      <!-- showChild BACK BUTTON -->
+      <!-- ===================== -->
+      <!-- <button
+         ng-if="ctrl.includeRoute == 'partials/showChore.html'
+            || ctrl.includeRoute == 'partials/addExtraPoints.html'"
+         ng-click="ctrl.showChild(ctrl.child)">
+         Back
+      </button> -->
+      <!-- ========================= -->
+      <!--  showChild CANCEL BUTTON  -->
+      <!-- ========================= -->
+      <!-- <button
+         ng-if="ctrl.includeRoute == 'partials/addChore.html'"
+         ng-click="ctrl.showChild(ctrl.child)">
+         Cancel
+      </button> -->
+      <!-- ============================= -->
+      <!--  showBonusPoints BACK BUTTON  -->
+      <!-- ============================= -->
+      <!-- <button
+         ng-if="ctrl.loggedInUser.admin &&
+            ctrl.includeRoute == 'partials/updateExtraPointsChore.html'"
+         ng-click="ctrl.showBonusPoints()">
+         Back
+      </button> -->
+      <!-- ========================= -->
+      <!--  addPoints CANCEL BUTTON  -->
+      <!-- ========================= -->
+      <!-- <button
+         ng-if="ctrl.loggedInUser.admin &&
+            ctrl.includeRoute == 'partials/addExtraPointsChore.html'"
+         ng-click="ctrl.addPoints()">
+         Cancel
+      </button> -->
+      <!-- ========================= -->
+      <!--  showRewards CANCEL BUTTON  -->
+      <!-- ========================= -->
+      <!-- <button
+         ng-if="ctrl.loggedInUser.admin &&
+            ctrl.includeRoute == 'partials/updateReward.html'"
+         ng-click="ctrl.showRewards()">
+         Cancel
+      </button> -->
+      <!-- ===================== -->
+      <!--  POINTS BALANCE VIEW  -->
+      <!-- ===================== -->
+      <!-- <h3
+         ng-if="ctrl.loggedInUser && !ctrl.loggedInUser.admin
+            && ctrl.includeRoute === 'partials/welcome.html'">
+         You Have {{ctrl.loggedInUser.points}} Points
+      </h3>
+
+      <button
+         ng-if="!ctrl.loggedInUser.admin &&
+            ctrl.includeRoute == 'partials/rewardStore.html'"
+         ng-click="ctrl.loadPage()">
+         Back
+      </button> -->
+      <!-- <div class="mydropdown" ng-if="ctrl.loggedInUser">
+         <button type="button" class="mydropbtn">
+            <i class="fas fa-bars"></i>
+         </button>
+         <div class="mydropdown-content">
+            <a class="anchor"
+               ng-if="ctrl.loggedInUser.admin"
+               ng-click="ctrl.showBonusPoints('bonus')">
+               Bonus Points
+            </a>
+            <a
+               ng-if="ctrl.loggedInUser.admin"
+               ng-click="ctrl.showBonusPoints('remove')">
+               Remove Points
+            </a>
+            <a
+               ng-if="ctrl.loggedInUser.admin"
+               ng-click="ctrl.showRewards()">
+               Rewards
+            </a>
+             <a
+               ng-if="!ctrl.loggedInUser.admin"
+               ng-click="ctrl.rewardStore()">
+               Rewards Store
+             <a
+               ng-if="ctrl.loggedInUser"
+               ng-click="ctrl.logout()">
+               Logout
+            </a>
+         </div>
+      </div>
+</nav> -->

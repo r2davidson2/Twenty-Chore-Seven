@@ -142,7 +142,7 @@ app.controller('ChoresController', ['$http', function($http) {
    this.showChore = (chore) => {
       controller.changeRoute('showChore');
       this.chore = chore;
-      console.log(this.includeRoute);
+      // console.log(this.includeRoute);
       // console.log(this.chore);
    }
 
@@ -1254,7 +1254,7 @@ app.controller('ChoresController', ['$http', function($http) {
       console.log(this.reward);
       this.includeRoute = `partials/updateReward.html`
    }
-   
+
    this.updateReward = function() {
       $http({
          method: 'PUT',
@@ -1283,6 +1283,19 @@ app.controller('ChoresController', ['$http', function($http) {
          }
       )
    };
+
+   this.rewardStore = function() {
+      $http({
+         method: 'GET',
+         url: '/rewards/store'
+      }).then(
+         (response) => {
+            console.log(response);
+            this.rewards = response.data;
+            controller.includeRoute = 'partials/rewardStore.html'
+         }
+      )
+   }
 
    this.resetRewardForm = function() {
       this.reward = null;

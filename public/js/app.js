@@ -374,10 +374,15 @@ app.controller('ChoresController', ['$http', function($http) {
       })
    }
 
+   this.addBonusChore = function(type) {
+      this.type = type;
+      controller.includeRoute = 'partials/addExtraPointsChore.html'
+   };
+
    this.addExtraPoints = function(points) {
       // console.log('clicked');
       this.points = this.child.points += points;
-      console.log('new point total is: ', this.points);
+      // console.log('new point total is: ', this.points);
       $http({
          method: 'PUT',
          url: '/chores/update/' + this.child._id,

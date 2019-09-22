@@ -1,7 +1,7 @@
 <!-- =============== -->
 <!--     NAV BAR     -->
 <!-- =============== -->
-<nav class="navbar navbar-expand-lg navbar-light">
+<nav class="navbar navbar-light">
       <button
          ng-if="!ctrl.loggedInUser"
          ng-click="ctrl.changeRoute('login')">
@@ -10,7 +10,7 @@
       <button
          ng-if="!ctrl.loggedInUser"
          ng-click="ctrl.changeRoute('createParentAccount')">
-         Create Account
+         Sign Up
       </button>
       <!-- =================== -->
       <!--  ADD CHILD ACCOUNT  -->
@@ -47,7 +47,7 @@
       <!-- ========================= -->
       <button
          ng-if="ctrl.includeRoute == 'partials/addChore.html'"
-         ng-click="ctrl.showChild(ctrl.child)">
+         ng-click="ctrl.changeRoute('welcome')">
          Cancel
       </button>
       <!-- ============================= -->
@@ -65,7 +65,7 @@
       <button
          ng-if="ctrl.loggedInUser.admin &&
             ctrl.includeRoute == 'partials/addExtraPointsChore.html'"
-         ng-click="ctrl.addPoints()">
+         ng-click="ctrl.showBonusPoints(ctrl.type)">
          Cancel
       </button>
       <!-- ========================= -->

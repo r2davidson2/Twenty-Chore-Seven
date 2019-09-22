@@ -77,7 +77,7 @@ main {
 .nav-item {
    font-size: 1.5rem;
 }
- .nav-item:hover {
+.nav-item:hover {
    text-decoration: underline;
    cursor: pointer;
    color: ghostwhite;
@@ -111,7 +111,7 @@ h4, h5 {
 .create-account > button {
    margin-top: 10px;
 }
-.extra-points-card, .show-bonus-points-card, .child-chores, .reward-card {
+.extra-points-card, .show-bonus-points-card, .child-chores, .reward-card, .child-reward-card {
    display: flex;
    justify-content: space-between;
    align-items: center;
@@ -123,7 +123,10 @@ h4, h5 {
    background-color: rgba(255, 255, 255, 0.2);
    background-color: rgba(0, 0, 0, 0.2);
 }
-.child-chores:hover, .reward-card:hover {
+.show-bonus-points-card, .reward-card {
+   cursor: auto;
+}
+.child-chores:hover, .child-reward-card:hover {
    text-decoration: underline;
 }
 .chore {

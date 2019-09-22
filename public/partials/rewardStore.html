@@ -1,7 +1,7 @@
 <div class="rewards">
    <h2>Rewards Store</h2>
    <h4>You Have {{ctrl.loggedInUser.points}} Points</h4>
-   <div class="reward-card"
+   <div class="child-reward-card"
       ng-repeat="reward in ctrl.rewards | orderBy: 'reward'">
       <h3>{{ reward.reward }}</h3>
       <h4>Price: {{ reward.price }} Points</h4>

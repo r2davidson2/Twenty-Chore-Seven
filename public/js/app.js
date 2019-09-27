@@ -1295,9 +1295,34 @@ app.controller('ChoresController', ['$http', function($http) {
          url: '/rewards/store'
       }).then(
          (response) => {
-            console.log(response);
+            // console.log(response);
             this.rewards = response.data;
             controller.includeRoute = 'partials/rewardStore.html'
+         }
+      )
+   }
+
+   this.buyReward = function(reward) {
+      console.log(reward.reward);
+      this.points = this.loggedInUser.points - reward.price
+      console.log('new point total is: ', this.points);
+      // console.log(this.loggedInUser.rewards);
+      // this.rewards = this.loggedInUser.rewards.push(reward)
+      // console.log(this.rewards);
+      $http({
+         method: 'PUT',
+         url: '/chores/buy/' + this.loggedInUser._id,
+         data: {
+            rewards: reward,
+            points: this.points
+         }
+      }).then(
+         (response) => {
+            // console.log(response.data);
+            this.loggedInUser = response.data;
+            this.points = null;
+            this.reward = null;
+            // controller.showChild(this.child);
          }
       )
    }

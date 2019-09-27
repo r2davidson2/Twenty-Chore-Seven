@@ -8,6 +8,7 @@ const childSchema = Schema({
    parent: String,
    chores: Array,
    points: Number,
+   rewards: Array,
    admin: Boolean
 })
 

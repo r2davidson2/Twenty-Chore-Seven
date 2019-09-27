@@ -4,6 +4,7 @@ const router = express.Router();
 const Parent = require('../models/parent.js');
 const Child = require('../models/child.js');
 
+// PARENT LOGIN
 router.post('/parent', (req, res)=>{
    Parent.findOne({ username: req.body.username }, (err, foundUser)=>{
       if(foundUser === null){
@@ -26,6 +27,7 @@ router.post('/parent', (req, res)=>{
    })
 });
 
+// CHILD LOGIN
 router.post('/child', (req, res)=>{
    Child.findOne({ username: req.body.username }, (err, foundUser)=>{
       if(foundUser === null){

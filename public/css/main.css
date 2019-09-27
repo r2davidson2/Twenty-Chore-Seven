@@ -9,10 +9,14 @@ body {
    background-position: center;
    background-attachment: fixed;
    color: #03A4D7;
+   outline-color: #03A4D7;
 }
 main {
    margin: 25px;
    text-transform: capitalize;
+}
+button {
+   outline-color: #03A4D7;
 }
 .welcome-container, .rewards {
    margin-top: 20px;
@@ -21,44 +25,15 @@ main {
    background: transparent;
    color: #03A4D7;
    text-align: right;
+   outline-color: #03A4D7;
    /* display: flex; */
    /* justify-content: space-between; */
    /* overflow: hidden; */
 }
-/* .mynavbar > a {
-   text-decoration: none;
-} */
-/* .mydropdown { */
-   /* overflow: hidden; */
-   /* text-align: right; */
-   /* margin: 10px; */
-/* } */
-/* .mydropdown > button {
-   text-align: right;
-   margin: 0;
+.fa-bars {
+   color: #03A4D7;
+   outline: none;
 }
-.mydropdown-content {
-   margin-right: 10px;
-   padding: 0 10px;
-   display: none;
-   position: absolute;
-   z-index: 1;
-   background: white;
-   text-align: right;
-}
-.mydropdown-content > a {
-   display: block;
-   text-align: right;
-   cursor: pointer;
-}
-.mydropdown-content > a:hover {
-   text-decoration: underline;
-   cursor: pointer;
-   color: ghostwhite;
-}
-.mydropdown:hover > .mydropdown-content {
-   display: block;
-} */
 .navbar-toggler {
    background: #03A4D7;
    /* outline-color: #03A4D7; */
@@ -82,9 +57,10 @@ main {
    cursor: pointer;
    color: ghostwhite;
 }
-nav > button {
+.navbar > button {
    justify-content: space-between;
    margin-top: 10px;
+   outline-color: #03A4D7;
 }
 form {
    display: flex;
@@ -98,18 +74,19 @@ button, input[type="submit"]{
    background: transparent;
    border-color: inherit;
    color: #03A4D7;
+   outline-color: #03A4D7;
 }
 nav > button {
    justify-content: space-between;
    margin: 10px;
-   /* height: 30px; */
-   /* border: none; */
+   outline-color: #03A4D7;
 }
 h4, h5 {
    margin: 0;
 }
 .create-account > button {
    margin-top: 10px;
+   outline-color: #03A4D7;
 }
 .extra-points-card, .show-bonus-points-card, .child-chores, .reward-card, .child-reward-card {
    display: flex;
@@ -151,6 +128,7 @@ h4, h5 {
 }
 .show-chore > button, .child-show-chore > button {
    margin: 5px 0;
+   outline-color: #03A4D7;
 }
 .show-chore-day, .child-show-chore-day {
    display: flex;
@@ -172,12 +150,14 @@ h4, h5 {
    background-color: rgba(0, 0, 0, 0.2);
    padding: 10px;
    display: grid;
+   outline-color: #03A4D7;
 }
 .add-chore-day > label {
    display: flex;
    justify-content: space-between;
    align-items: center;
    font-size: 150%;
+   outline-color: #03A4D7;
    /* border: 1px solid #03A4D7; */
    /* padding: 0 10px 5px 5px; */
 }
@@ -209,6 +189,15 @@ h4, h5 {
 }
 .show-bonus-points-card-bonus > h5 {
    /* margin-top: -5px; */
+}
+#fa-bars, .fa-bars {
+   border: none;
+   outline-color: #03A4D7;
+}
+.fa-bars {
+   color: #03A4D7;
+   font-size: 200%;
+   /* outline: none; */
 }
 
 /* MOBILE STYLING */

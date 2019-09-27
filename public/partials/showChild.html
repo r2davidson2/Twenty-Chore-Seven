@@ -4,6 +4,16 @@
    <!-- ============== -->
    <!-- CHILD's CHORES -->
    <!-- ============== -->
+   <div class="bought-rewards" ng-repeat="reward in ctrl.child.rewards">
+      <h4>{{ reward.reward }}</h4>
+      <button type="button"
+         ng-click="ctrl.rewardReceived($index)">
+         Redeemed
+      </button>
+   </div>
+   <!-- ============== -->
+   <!-- CHILD's CHORES -->
+   <!-- ============== -->
    <div class="chore"
       ng-repeat="chore in ctrl.child.chores | orderBy : 'task'"
       ng-click="ctrl.showChore(chore)">

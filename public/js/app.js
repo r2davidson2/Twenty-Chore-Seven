@@ -356,7 +356,7 @@ app.controller('ChoresController', ['$http', function($http) {
          url: '/extrapoints/' + id
       }).then(
          (response) => {
-            console.log(response);
+            // console.log(response);
             controller.showBonusPoints();
          }
       )
@@ -1303,26 +1303,42 @@ app.controller('ChoresController', ['$http', function($http) {
    }
 
    this.buyReward = function(reward) {
-      console.log(reward.reward);
+      // console.log(reward.reward);
       this.points = this.loggedInUser.points - reward.price
-      console.log('new point total is: ', this.points);
-      // console.log(this.loggedInUser.rewards);
-      // this.rewards = this.loggedInUser.rewards.push(reward)
-      // console.log(this.rewards);
+      // console.log('new point total is: ', this.points);
+      if (this.loggedInUser.points - reward.price < 0) {
+         alert('You don\'t have enough points for this reward yet. \nKeep doing your chores and you\'ll have enough before you know it!')
+      } else {
+         $http({
+            method: 'PUT',
+            url: '/chores/buy/' + this.loggedInUser._id,
+            data: {
+               rewards: reward,
+               points: this.points
+            }
+         }).then(
+            (response) => {
+               this.loggedInUser = response.data;
+               this.points = null;
+               this.reward = null;
+            }
+         )
+      }
+   }
+
+   this.rewardReceived = function(index) {
+      // console.log(index);
+      this.child.rewards.splice(index, 1);
+      // console.log(this.child.rewards);
       $http({
          method: 'PUT',
-         url: '/chores/buy/' + this.loggedInUser._id,
+         url: '/chores/' + this.child._id,
          data: {
-            rewards: reward,
-            points: this.points
+            rewards: this.child.rewards
          }
       }).then(
          (response) => {
-            // console.log(response.data);
-            this.loggedInUser = response.data;
-            this.points = null;
-            this.reward = null;
-            // controller.showChild(this.child);
+            controller.showChild(this.child);
          }
       )
    }

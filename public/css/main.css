@@ -126,8 +126,17 @@ h4, h5 {
 .show-bonus-points-card, .reward-card {
    cursor: auto;
 }
-.child-chores:hover, .child-reward-card:hover {
+.child-chores:hover {
    text-decoration: underline;
+}
+.child-reward-card {
+   cursor: auto;
+}
+.child-reward-card:hover {
+   /* text-decoration: underline; */
+}
+.child-reward-card-info {
+   display: block;
 }
 .chore {
    display: flex;
@@ -178,15 +187,6 @@ h4, h5 {
 .child-show-chore > button {
    /* margin: 5px 0; */
 }
-/* .mydropbtn {
-   width: 50px;
-   height: 50px;
-} */
-/* .fa-bars {
-   color: #03A4D7;
-   width: 50px;
-   height: 50px;
-} */
 .welcome-parent {
    display: flex;
    justify-content: space-between;

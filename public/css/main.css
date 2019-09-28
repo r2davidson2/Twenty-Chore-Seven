@@ -67,6 +67,15 @@ form {
    flex-direction: column;
    max-width: 30%;
 }
+form > input {
+   color: #03A4D7;
+   border-color: #03A4D7;
+   background: rgba(0, 0, 0, 0.8);
+   outline-color: inherit;
+}
+form > input[type="submit"] {
+   background: rgba(0, 0, 0, 0.8);
+}
 input {
    margin-top: 10px;
 }
@@ -208,10 +217,11 @@ h4, h5 {
    color: hotpink;
 }
 
+/* ============== */
 /* MOBILE STYLING */
+/* ============== */
 @media screen and (max-width: 600px) {
    body {
-      /* background: blue; */
       text-align: center;
    }
    nav > button {
@@ -227,6 +237,23 @@ h4, h5 {
       text-align: center;
       margin: 0 auto 10px auto;
       background: rgba(0, 0, 0, 0.8);
+   }
+   form {
+      margin: 0 auto;
+      text-align: center;
+      max-width: 50%;
+   }
+   form > input {
+      /* color: #03A4D7;
+      border-color: #03A4D7;
+      background: rgba(0, 0, 0, 0.8); */
+   }
+   form > input[type="submit"] {
+      /* background: rgba(0, 0, 0, 0.8); */
+   }
+   .add-chore > form {
+      margin: 0 auto;
+      max-width: 75%;
    }
    .add-bonus-points {
       max-width: 50%;

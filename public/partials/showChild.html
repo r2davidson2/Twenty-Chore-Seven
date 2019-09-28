@@ -1,11 +1,13 @@
 <div class="">
    <h1>{{ ctrl.child.name}}</h1>
    <h3>Points: {{ ctrl.child.points}}</h3>
-   <!-- ============== -->
-   <!-- CHILD's CHORES -->
-   <!-- ============== -->
+   <!-- =============== -->
+   <!-- CHILD's REWARDS -->
+   <!-- =============== -->
    <div class="bought-rewards" ng-repeat="reward in ctrl.child.rewards">
-      <h4>{{ reward.reward }}</h4>
+      <div class="bought-rewards-name">
+         <h4>{{ reward.reward }}</h4>
+      </div>
       <button type="button"
          ng-click="ctrl.rewardReceived($index)">
          Redeemed

@@ -235,13 +235,17 @@ h4, h5 {
    .extra-points-card-button {
       width: 100%;
       display: flex;
-      justify-content: center;
-      flex-direction: column;
+      justify-content: space-between;
       position: fixed;
       bottom: 0;
       left: 0;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 10px;
    }
-   .extra-points-card, .show-bonus-points-card, .child-chores, .reward-card, .add-bonus-points, .bought-rewards {
+   .extra-points-card-button > button {
+      margin: 0;
+   }
+   .extra-points-card, .show-bonus-points-card, .child-chores, .reward-card, .add-bonus-points, .bought-rewards-name {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -249,8 +253,12 @@ h4, h5 {
    .show-bonus-points-card {
       text-align: left;
    }
-   .show-bonus-points-card > button, .bought-rewards > button {
+   .show-bonus-points-card > button, .bought-rewards > button, .child-reward-card > buttonc {
       margin: 0;
+   }
+   .bought-rewards-name, .child-reward-card-info {
+      padding: 5px;
+      background: rgba(0, 0, 0, 0.8);
    }
    #fa-bars {
       padding: 0;

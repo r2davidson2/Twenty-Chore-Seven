@@ -1,59 +1,72 @@
-<div class="">
+<div class="update-chore">
    <form ng-submit="ctrl.postEditedChore(ctrl.chore.task)">
       <input
          type="text"
          ng-model="ctrl.updatedTask"
          ng-value="ctrl.chore.task"
-         required><br>
+         required>
       <input
          type="number"
          ng-model="ctrl.updatedPoints"
          ng-value="ctrl.chore.points"
-         required/><br>
-      <label> Monday
-         <input
-            type="checkbox"
-            ng-model="ctrl.updatedMonday"
-            ng-value="ctrl.chore.monday.toDo"/>
-      </label><br>
-      <label> Tuesday
-         <input
-            type="checkbox"
-            ng-model="ctrl.updatedTuesday"
-            ng-value="ctrl.chore.tuesday.toDo"/>
-      </label><br>
-      <label> Wednesday
-         <input
-            type="checkbox"
-            ng-model="ctrl.updatedWednesday"
-            ng-value="ctrl.chore.wednesday.toDo"/>
-      </label><br>
-      <label> Thursday
-         <input
-            type="checkbox"
-            ng-model="ctrl.updatedThursday"
-            ng-value="ctrl.chore.thursday.toDo"/>
-      </label><br>
-      <label> Friday
-         <input
-            type="checkbox"
-            ng-model="ctrl.updatedFriday"
-            ng-value="ctrl.chore.friday.toDo"/>
-      </label><br>
-      <label> Saturday
-         <input
-            type="checkbox"
-            ng-model="ctrl.updatedSaturday"
-            ng-value="ctrl.chore.saturday.toDo"/>
-      </label><br>
-      <label> Sunday
-         <input
-            type="checkbox"
-            ng-model="ctrl.updatedSunday"
-            ng-value="ctrl.chore.sunday.toDo"
-            />
-      </label><br>
+         required/>
+      <div class="update-chore-day">
+         <label> Monday
+            <input
+               type="checkbox"
+               ng-model="ctrl.updatedMonday"
+               ng-value="ctrl.chore.monday.toDo"/>
+         </label>
+      </div>
+      <div class="update-chore-day">
+         <label> Tuesday
+            <input
+               type="checkbox"
+               ng-model="ctrl.updatedTuesday"
+               ng-value="ctrl.chore.tuesday.toDo"/>
+         </label>
+      </div>
+      <div class="update-chore-day">
+         <label> Wednesday
+            <input
+               type="checkbox"
+               ng-model="ctrl.updatedWednesday"
+               ng-value="ctrl.chore.wednesday.toDo"/>
+         </label>
+      </div>
+      <div class="update-chore-day">
+         <label> Thursday
+            <input
+               type="checkbox"
+               ng-model="ctrl.updatedThursday"
+               ng-value="ctrl.chore.thursday.toDo"/>
+         </label>
+      </div>
+      <div class="update-chore-day">
+         <label> Friday
+            <input
+               type="checkbox"
+               ng-model="ctrl.updatedFriday"
+               ng-value="ctrl.chore.friday.toDo"/>
+         </label>
+      </div>
+      <div class="update-chore-day">
+         <label> Saturday
+            <input
+               type="checkbox"
+               ng-model="ctrl.updatedSaturday"
+               ng-value="ctrl.chore.saturday.toDo"/>
+         </label>
+      </div>
+      <div class="update-chore-day">
+         <label> Sunday
+            <input
+               type="checkbox"
+               ng-model="ctrl.updatedSunday"
+               ng-value="ctrl.chore.sunday.toDo"
+               />
+         </label>
+      </div>
       <input type="submit" value="Update Chore">
    </form>
-   <button type="button" ng-click="ctrl.showChild(ctrl.child)">Cancel</button>
 </div>

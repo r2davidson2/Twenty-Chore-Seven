@@ -15,7 +15,7 @@ main {
    margin: 25px;
    text-transform: capitalize;
 }
-button {
+button[type="button"] {
    outline-color: #03A4D7;
 }
 .welcome-container, .rewards {
@@ -83,7 +83,6 @@ button, input[type="submit"]{
    background: transparent;
    border-color: inherit;
    color: #03A4D7;
-   outline-color: #03A4D7;
 }
 nav > button {
    justify-content: space-between;
@@ -162,7 +161,7 @@ h4, h5 {
    display: grid;
    outline-color: #03A4D7;
 }
-.add-chore-day > label {
+.add-chore-day > label, .update-chore-day > label {
    display: flex;
    justify-content: space-between;
    align-items: center;
@@ -203,6 +202,12 @@ h4, h5 {
 .bought-rewards {
    color: hotpink;
 }
+.update-chore > form {
+   border: 2px solid #03A4D7;
+   border-radius: 5px;
+   padding: 10px;
+   /* max-width: 50%; */
+}
 #fa-bars, .fa-bars {
    border: none;
    outline-color: #03A4D7;
@@ -211,6 +216,10 @@ h4, h5 {
    color: #03A4D7;
    font-size: 200%;
    /* outline: none; */
+}
+.fa-check {
+   font-size: 200%;
+   color: #03A4D7;
 }
 .fa-gift {
    font-size: 150%;
@@ -237,6 +246,7 @@ h4, h5 {
       text-align: center;
       margin: 0 auto 10px auto;
       background: rgba(0, 0, 0, 0.8);
+      outline-color: #03A4D7;
    }
    form {
       margin: 0 auto;
@@ -251,7 +261,7 @@ h4, h5 {
    form > input[type="submit"] {
       /* background: rgba(0, 0, 0, 0.8); */
    }
-   .add-chore > form {
+   .add-chore > form, .update-chore > form {
       margin: 0 auto;
       max-width: 75%;
    }
@@ -269,13 +279,19 @@ h4, h5 {
       background: rgba(0, 0, 0, 0.8);
       padding: 10px;
    }
-   .extra-points-card-button > button {
+   .extra-points-card-button > button, .child-show-chore-day > button {
       margin: 0;
    }
    .extra-points-card, .show-bonus-points-card, .child-chores, .reward-card, .add-bonus-points, .bought-rewards-name {
       display: flex;
       justify-content: space-between;
       align-items: center;
+   }
+   .show-chore > button {
+      margin: 0 auto 10px auto;
+   }
+   .show-chore-day {
+      height: auto;
    }
    .show-bonus-points-card {
       text-align: left;

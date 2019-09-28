@@ -6,6 +6,10 @@
       <h4>
          Monday
       </h4>
+      <div class=""
+         ng-if="ctrl.chore.monday.toDo && ctrl.chore.monday.completed">
+         <i class="fas fa-check"></i>
+      </div>
       <button type="button"
          ng-if="ctrl.chore.monday.toDo && !ctrl.chore.monday.completed"
          ng-click="ctrl.temporaryMarkCompleted('monday')">
@@ -16,6 +20,10 @@
       <h4 >
          Tuesday
       </h4>
+      <div class=""
+         ng-if="ctrl.chore.tuesday.toDo && ctrl.chore.tuesday.completed">
+         <i class="fas fa-check"></i>
+      </div>
       <button type="button"
          ng-if="ctrl.chore.tuesday.toDo && !ctrl.chore.tuesday.completed"
          ng-click="ctrl.temporaryMarkCompleted('tuesday')">
@@ -26,6 +34,10 @@
       <h4>
          Wednesday
       </h4>
+      <div class=""
+         ng-if="ctrl.chore.wednesday.toDo && ctrl.chore.wednesday.completed">
+         <i class="fas fa-check"></i>
+      </div>
       <button type="button"
          ng-if="ctrl.chore.wednesday.toDo && !ctrl.chore.wednesday.completed"
          ng-click="ctrl.temporaryMarkCompleted('wednesday')">
@@ -36,6 +48,10 @@
       <h4>
          Thursday
       </h4>
+      <div class=""
+         ng-if="ctrl.chore.thursday.toDo && ctrl.chore.thursday.completed">
+         <i class="fas fa-check"></i>
+      </div>
       <button type="button"
          ng-if="ctrl.chore.thursday.toDo && !ctrl.chore.thursday.completed"
          ng-click="ctrl.temporaryMarkCompleted('thursday')">
@@ -46,6 +62,10 @@
       <h4>
          Friday
       </h4>
+      <div class=""
+         ng-if="ctrl.chore.friday.toDo && ctrl.chore.friday.completed">
+         <i class="fas fa-check"></i>
+      </div>
       <button type="button"
          ng-if="ctrl.chore.friday.toDo && !ctrl.chore.friday.completed"
          ng-click="ctrl.temporaryMarkCompleted('friday')">
@@ -56,6 +76,10 @@
       <h4>
          Saturday
       </h4>
+      <div class=""
+         ng-if="ctrl.chore.saturday.toDo && ctrl.chore.saturday.completed">
+         <i class="fas fa-check"></i>
+      </div>
       <button type="button"
          ng-if="ctrl.chore.saturday.toDo && !ctrl.chore.saturday.completed"
          ng-click="ctrl.temporaryMarkCompleted('saturday')">
@@ -66,6 +90,10 @@
       <h4>
          Sunday
       </h4>
+      <div class=""
+         ng-if="ctrl.chore.sunday.toDo && ctrl.chore.sunday.completed">
+         <i class="fas fa-check"></i>
+      </div>
       <button type="button"
          ng-if="ctrl.chore.sunday.toDo && !ctrl.chore.sunday.completed"
          ng-click="ctrl.temporaryMarkCompleted('sunday')">

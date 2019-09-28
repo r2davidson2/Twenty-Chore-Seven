@@ -226,6 +226,7 @@ h4, h5 {
       display: block;
       text-align: center;
       margin: 0 auto 10px auto;
+      background: rgba(0, 0, 0, 0.8);
    }
    .add-bonus-points {
       max-width: 50%;
@@ -240,16 +241,15 @@ h4, h5 {
       bottom: 0;
       left: 0;
    }
-   .extra-points-card, .show-bonus-points-card, .child-chores, .reward-card, .add-bonus-points {
+   .extra-points-card, .show-bonus-points-card, .child-chores, .reward-card, .add-bonus-points, .bought-rewards {
       display: flex;
       justify-content: space-between;
       align-items: center;
-
    }
    .show-bonus-points-card {
       text-align: left;
    }
-   .show-bonus-points-card > button {
+   .show-bonus-points-card > button, .bought-rewards > button {
       margin: 0;
    }
    #fa-bars {

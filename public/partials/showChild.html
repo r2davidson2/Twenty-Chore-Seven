@@ -19,7 +19,8 @@
    <div class="chore"
       ng-repeat="chore in ctrl.child.chores | orderBy : 'task'"
       ng-click="ctrl.showChore(chore)">
-   <div class="chore-name">
+      <div class="chore-name">
+         <h4>{{chore.task}}</h4>
          <div class=""
             ng-if="chore.monday.completed
                || chore.tuesday.completed
@@ -29,9 +30,10 @@
                || chore.saturday.completed
                || chore.sunday.completed">
             <!-- <i class="fas fa-exclamation"></i>&nbsp;&nbsp; -->
-            <i class="far fa-star"></i>&nbsp;&nbsp;
+            <!-- <i class="far fa-star"></i>&nbsp;&nbsp; -->
+            &nbsp;&nbsp;<i class="fas fa-check" id="checkmark"></i>
          </div>
-         <h4>{{chore.task}}</h4>
+         <!-- <h4>{{chore.task}}</h4> -->
       </div>
       <h5>Earn {{chore.points}} Points</h5>
    </div>

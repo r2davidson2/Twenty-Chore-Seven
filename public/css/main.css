@@ -217,17 +217,17 @@ h4, h5 {
    font-size: 200%;
    /* outline: none; */
 }
-.fa-check, .fa-ellipsis-h, .fa-comment-dots {
+.fa-check, .fa-ellipsis-h, .fa-comment-dots, .fa-spinner {
    font-size: 200%;
    color: #03A4D7;
 }
-.fa-gift, .fa-exclamation {
+.fa-gift,  {
    font-size: 150%;
    color: hotpink;
 }
-.fa-star {
+.fa-star, #checkmark, .fa-exclamation {
    font-size: 150%;
-   color: ghostwhite;
+   color: #3FF540;
 }
 .chore-name {
    display: flex;

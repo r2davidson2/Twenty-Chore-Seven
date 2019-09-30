@@ -92,6 +92,13 @@ nav > button {
 h4, h5 {
    margin: 0;
 }
+.create-account {
+   display: flex;
+   justify-content: flex-end;
+}
+.create-account > form {
+   width: 35%;
+}
 .create-account > button {
    margin-top: 10px;
    outline-color: #03A4D7;
@@ -217,7 +224,7 @@ h4, h5 {
    font-size: 200%;
    /* outline: none; */
 }
-.fa-check, .fa-ellipsis-h, .fa-comment-dots, .fa-spinner {
+.fa-check, .fa-spinner {
    font-size: 200%;
    color: #03A4D7;
 }
@@ -225,7 +232,7 @@ h4, h5 {
    font-size: 150%;
    color: hotpink;
 }
-.fa-star, #checkmark, .fa-exclamation {
+.fa-star, #checkmark {
    font-size: 150%;
    color: #3FF540;
 }

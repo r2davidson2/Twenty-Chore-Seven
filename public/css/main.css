@@ -18,6 +18,34 @@ main {
 button[type="button"] {
    outline-color: #03A4D7;
 }
+.landing-page {
+   text-transform: none;
+   font-size: 150%;
+}
+.landing-page > p {
+   margin: 0;
+   width: 35%;
+}
+.modal-body {
+   background: black;
+   color: #03A4D7;
+   border: 1px solid #03A4D7;
+   border-radius: 5px;
+   padding: 0;
+}
+.modal-body > p {
+   margin: 10px;
+   text-align: center;
+   /* padding: 10px; */
+}
+.close-modal {
+   color: #03A4D7;
+   border: none;
+   float: right;
+}
+.close-modal:focus {
+   outline: none;
+}
 .welcome-container, .rewards {
    margin-top: 20px;
 }
@@ -94,7 +122,8 @@ h4, h5 {
 }
 .create-account {
    display: flex;
-   justify-content: flex-end;
+   flex-direction: column;
+   align-items: flex-end;
 }
 .create-account > form {
    width: 35%;
@@ -239,6 +268,12 @@ h4, h5 {
 .chore-name {
    display: flex;
 }
+.info {
+   border: none;
+}
+.info:focus {
+   outline: none;
+}
 
 /* ============== */
 /* MOBILE STYLING */
@@ -274,6 +309,9 @@ h4, h5 {
    }
    form > input[type="submit"] {
       /* background: rgba(0, 0, 0, 0.8); */
+   }
+   .create-account > form {
+      width: 100%;
    }
    .add-chore > form, .update-chore > form {
       margin: 0 auto;

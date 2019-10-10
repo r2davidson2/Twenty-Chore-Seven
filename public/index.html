@@ -18,12 +18,33 @@
       <div ng-include="'partials/navigation.html'">
 
       </div>
-      <!-- <nav ng-include="'partials/navigation.html'"
-         class="navbar navbar-dark">
 
-      </nav> -->
       <main>
-         <h1>TWENTYCHORE/7</h1>
+         <div class="landing-page"
+            ng-if="!ctrl.loggedInUser && ctrl.includeRoute === ''">
+            <h1>TWENTYCHORE/7</h1>
+            <p>The modern chore manager.</p>
+
+            <!-- Button trigger modal -->
+            <button type="button" class="info" data-toggle="modal" data-target="#exampleModalCenter">
+              <i class="fas fa-info-circle"></i>
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                  <div class="modal-body">
+                     <button type="button" class="close-modal" data-dismiss="modal" aria-label="Close">
+                        <i class="far fa-window-close"></i>
+                    </button><br>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+         </div>
+
          <div ng-include="ctrl.includeRoute" class="main-container">
 
          </div>

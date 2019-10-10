@@ -3,10 +3,14 @@ const app = angular.module('Chores', []);
 app.controller('ChoresController', ['$http', function($http) {
    const controller = this;
 
-   this.includeRoute = ''
+   this.includeRoute = '';
 
    this.changeRoute = (route) => {
-      this.includeRoute = `partials/${route}.html`
+      this.includeRoute = `partials/${route}.html`;
+   }
+
+   this.cancelChangeRoute = () => {
+      this.includeRoute = '';
    }
 
    // --------------

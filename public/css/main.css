@@ -1,6 +1,3 @@
-html {
-   /* background-color: #19134B; */
-}
 body {
    background-color: #000101;
    background-image: url('https://images.pexels.com/photos/1083618/pexels-photo-1083618.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
@@ -36,7 +33,6 @@ button[type="button"] {
 .modal-body > p {
    margin: 10px;
    text-align: center;
-   /* padding: 10px; */
 }
 .close-modal {
    color: #03A4D7;
@@ -54,9 +50,6 @@ button[type="button"] {
    color: #03A4D7;
    text-align: right;
    outline-color: #03A4D7;
-   /* display: flex; */
-   /* justify-content: space-between; */
-   /* overflow: hidden; */
 }
 .fa-bars {
    color: #03A4D7;
@@ -64,8 +57,6 @@ button[type="button"] {
 }
 .navbar-toggler {
    background: #03A4D7;
-   /* outline-color: #03A4D7; */
-   /* color: black; */
 }
 .navbar-toggler-icon {
    color: black;
@@ -153,9 +144,6 @@ h4, h5 {
 .child-reward-card {
    cursor: auto;
 }
-.child-reward-card:hover {
-   /* text-decoration: underline; */
-}
 .child-reward-card-info {
    display: block;
 }
@@ -203,21 +191,15 @@ h4, h5 {
    align-items: center;
    font-size: 150%;
    outline-color: #03A4D7;
-   /* border: 1px solid #03A4D7; */
-   /* padding: 0 10px 5px 5px; */
 }
 .add-bonus-points {
    display: block;
-}
-.child-show-chore > button {
-   /* margin: 5px 0; */
 }
 .welcome-parent {
    display: flex;
    justify-content: space-between;
 }
 .child-card {
-   /* width: 20%; */
    display: flex;
    justify-content: space-between;
    align-items: center;
@@ -232,9 +214,6 @@ h4, h5 {
 .show-bonus-points-card-bonus > h4 {
    margin: 0;
 }
-.show-bonus-points-card-bonus > h5 {
-   /* margin-top: -5px; */
-}
 .bought-rewards {
    color: hotpink;
 }
@@ -242,7 +221,6 @@ h4, h5 {
    border: 2px solid #03A4D7;
    border-radius: 5px;
    padding: 10px;
-   /* max-width: 50%; */
 }
 #fa-bars, .fa-bars {
    border: none;
@@ -251,7 +229,6 @@ h4, h5 {
 .fa-bars {
    color: #03A4D7;
    font-size: 200%;
-   /* outline: none; */
 }
 .fa-check, .fa-spinner {
    font-size: 200%;
@@ -302,14 +279,6 @@ h4, h5 {
       text-align: center;
       max-width: 50%;
    }
-   form > input {
-      /* color: #03A4D7;
-      border-color: #03A4D7;
-      background: rgba(0, 0, 0, 0.8); */
-   }
-   form > input[type="submit"] {
-      /* background: rgba(0, 0, 0, 0.8); */
-   }
    .create-account > form {
       width: 100%;
    }
@@ -319,7 +288,6 @@ h4, h5 {
    }
    .add-bonus-points {
       max-width: 50%;
-      /* color: ghostwhite;  */
    }
    .extra-points-card-button {
       width: 100%;

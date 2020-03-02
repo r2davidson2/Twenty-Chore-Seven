@@ -74,7 +74,8 @@
       <!-- ========================= -->
       <button
          ng-if="ctrl.loggedInUser.admin &&
-            ctrl.includeRoute == 'partials/updateReward.html'"
+            ctrl.includeRoute == 'partials/updateReward.html'
+            || ctrl.includeRoute == 'partials/addReward.html'"
          ng-click="ctrl.showRewards()">
          Cancel
       </button>

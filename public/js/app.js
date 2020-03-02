@@ -36,6 +36,9 @@ app.controller('ChoresController', ['$http', function($http) {
          controller.createPassword = null;
       }, function(error) {
          console.log(error);
+         if (error.status === 401) {
+           alert('Username or password is incorrect.')
+         }
       })
    };
 

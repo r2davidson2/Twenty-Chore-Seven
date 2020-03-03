@@ -90,14 +90,14 @@ app.controller('ChoresController', ['$http', function($http) {
       }).then(
          function(response) {
             controller.loggedInUser = response.data.user;
-            // console.log(controller.loggedInUser);
             controller.username = null;
             controller.password = null;
             this.chores = controller.loggedInUser.chores || null;
-            // console.log(this.chores);
             controller.loadPage();
          }, function(error) {
             console.log(error);
+            controller.username = null;
+            controller.password = null;
             if (error.status === 401) {
                alert('Username or password is incorrect.')
             }

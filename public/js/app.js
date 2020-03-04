@@ -68,6 +68,12 @@ app.controller('ChoresController', ['$http', function($http) {
       })
    };
 
+   this.cancelCreateAccount = function() {
+     controller.createUsername = null;
+     controller.createPassword = null;
+     controller.cancelChangeRoute();
+   }
+
    this.deleteChild = function(child) {
       $http({
          method: 'DELETE',
@@ -96,7 +102,7 @@ app.controller('ChoresController', ['$http', function($http) {
             controller.loadPage();
          }, function(error) {
             console.log(error);
-            controller.username = null;
+            // controller.username = null;
             controller.password = null;
             if (error.status === 401) {
                alert('Username or password is incorrect.')
@@ -104,6 +110,12 @@ app.controller('ChoresController', ['$http', function($http) {
          }
       )
    };
+
+   this.cancelLogin = function() {
+     controller.username = null;
+     controller.password = null;
+     controller.cancelChangeRoute();
+   }
 
    this.loadPage = function() {
       $http({

@@ -349,4 +349,7 @@ h4, h5 {
      text-align: left;
      background: transparent;
    }
+   .fa-info-circle {
+     text-align: left;
+   }
 }

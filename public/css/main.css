@@ -261,6 +261,12 @@ h4, h5 {
       text-align: center;
       background-position: right -50px top 50%;
    }
+   .close-modal {
+     margin: 0;
+   }
+   #info-text {
+     margin-top: 15px;
+   }
    nav > button {
       font-size: 130%;
 
@@ -291,7 +297,7 @@ h4, h5 {
    .add-bonus-points {
       max-width: 50%;
    }
-   .extra-points-card-button {
+   .extra-points-card-button, .show-chore-day-buttons-two {
       width: 100%;
       display: flex;
       justify-content: space-between;

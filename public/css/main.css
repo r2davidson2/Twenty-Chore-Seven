@@ -38,6 +38,7 @@ button[type="button"] {
    color: #03A4D7;
    border: none;
    float: right;
+   margin-right: 0;
 }
 .close-modal:focus {
    outline: none;
@@ -342,8 +343,8 @@ h4, h5 {
       background: rgba(0, 0, 0, 0.8);
    }
    .close-modal {
-     padding: 0;
-     margin: 0;
+     /* padding: 0;
+     margin: 0; */
    }
    #fa-bars {
       padding: 0;

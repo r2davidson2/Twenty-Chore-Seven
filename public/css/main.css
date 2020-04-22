@@ -347,5 +347,6 @@ h4, h5 {
    #info {
      margin-left: 0;
      text-align: left;
+     background: transparent;
    }
 }

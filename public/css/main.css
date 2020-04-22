@@ -259,7 +259,7 @@ h4, h5 {
 @media screen and (max-width: 600px) {
    body {
       text-align: center;
-      background-position: right -25px top 50%;
+      background-position: right -50px top 50%;
    }
    nav > button {
       font-size: 130%;

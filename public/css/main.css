@@ -341,4 +341,11 @@ h4, h5 {
       padding: 0;
       outline: none;
    }
+   #tag-line {
+     text-align: left;
+   }
+   #info {
+     margin-left: 0;
+     text-align: left;
+   }
 }

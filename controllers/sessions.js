@@ -14,9 +14,10 @@ router.delete('/', (req, res) => {
 });
 
 router.post('/', (req, res)=>{
-    Parent.findOne({username:req.body.username}, (err, foundUser)=>{
+    Parent.findOne({username:req.body.username}, (err, foundUser)=> {
+      // console.log('foundUser: ' foundUser);
       if (foundUser === null) {
-         Child.findOne({username:req.body.username}, (err, foundUser)=>{
+         Child.findOne({username:req.body.username}, (err, foundUser)=> {
             if (foundUser === null) {
               res.status(401).json({
                  status: 401,

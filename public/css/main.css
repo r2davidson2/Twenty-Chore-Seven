@@ -23,6 +23,18 @@ button[type="button"] {
    margin: 0;
    width: 35%;
 }
+.modal {
+  max-height: 80%;
+  max-width: 80%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.modal-dialog {
+  min-width: 80%;
+  font-size: 150%;
+}
 .modal-body {
    background: black;
    color: #03A4D7;
@@ -33,12 +45,20 @@ button[type="button"] {
 .modal-body > p {
    margin: 10px;
    text-align: center;
+   text-transform: none;
 }
 .close-modal {
    color: #03A4D7;
    border: none;
    float: right;
    margin-right: 0;
+}
+.modal-open .nav-bar, .modal-open .landing-page {
+    -webkit-filter: blur(2px);
+    -moz-filter: blur(2px);
+    -o-filter: blur(2px);
+    -ms-filter: blur(2px);
+    filter: blur(2px);
 }
 .close-modal:focus {
    outline: none;
@@ -136,6 +156,7 @@ h4, h5 {
    cursor: pointer;
    background-color: rgba(255, 255, 255, 0.2);
    background-color: rgba(0, 0, 0, 0.2);
+   box-shadow: 2px 2px 5px #03A4D7;
 }
 .show-bonus-points-card, .reward-card {
    cursor: auto;
@@ -160,6 +181,7 @@ h4, h5 {
    border-radius: 5px;
    text-transform: capitalize;
    cursor: pointer;
+   box-shadow: 2px 2px 5px #03A4D7;
 }
 .show-chore > button, .child-show-chore > button {
    margin: 5px 0;
@@ -175,6 +197,7 @@ h4, h5 {
    margin: 5px 0;
    padding: 10px;
    height: 55px;
+   box-shadow: 2px 2px 5px #03A4D7;
 }
 .login > input[type="submit"] {
 
@@ -212,6 +235,7 @@ h4, h5 {
    cursor: pointer;
    background-color: rgba(255, 255, 255, 0.2);
    background-color: rgba(0, 0, 0, 0.2);
+   box-shadow: 2px 2px 5px #03A4D7;
 }
 .show-bonus-points-card-bonus > h4 {
    margin: 0;
@@ -289,6 +313,10 @@ h4, h5 {
       text-align: center;
       max-width: 50%;
    }
+   .modal {
+     max-height: 100%;
+     max-width: 100%;
+   }
    .create-account > form {
       width: 100%;
    }
@@ -339,7 +367,7 @@ h4, h5 {
    .show-chore-day-buttons-two > button {
       margin: 0;
    }
-   .show-bonus-points-card > button, .bought-rewards > button, .child-reward-card > buttonc {
+   .show-bonus-points-card > button, .bought-rewards > button, .child-reward-card > button {
       margin: 0;
    }
    .bought-rewards-name, .child-reward-card-info {
